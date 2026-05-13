@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "5e33ce9aec966c82",
+    "type": "split",
+    "children": [
+      {
+        "id": "33ca83c63505f200",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "efec2d74635c1645",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Seizure Log.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Seizure Log"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "05956b621dcc1cb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "f538e7739bbffbf3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eff61fc0bb025d4a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "245714e0e72e56da",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0bc7b5e68321fc6e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a4ec34a8c157c972",
+    "type": "split",
+    "children": [
+      {
+        "id": "1d19ba6441d87ab6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "56e3606d81bf2e76",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Seizure Log.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Seizure Log"
+            }
+          },
+          {
+            "id": "79844afeae9866a7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Seizure Log.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Seizure Log"
+            }
+          },
+          {
+            "id": "9f4d6c7fff593e52",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "52be7180edb6a938",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "591373cc418d8cca",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Seizure Log.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Seizure Log"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "efec2d74635c1645",
+  "lastOpenFiles": [
+    "_templates/History Note.md",
+    "_meta/README.md",
+    "_meta/REVIEW_NEEDED.md",
+    "_meta/STYLE_GUIDE.md",
+    "_meta",
+    "_templates/Hub.md",
+    "_templates/Diagnosis.md",
+    "_templates/Care Note.md",
+    "STYLE_GUIDE.md",
+    "README.md",
+    "REVIEW_NEEDED.md",
+    "Untitled.base",
+    "Untitled.canvas",
+    "2026-05-13.md",
+    "Seizure Log.md",
+    "Lemonade.md",
+    "Imaging History.md",
+    "Idiopathic Epilepsy.md",
+    "Exercise and Activity.md",
+    "Diagnoses.md",
+    "Childhood and Background.md",
+    "Images/x-ray/2026-04-28/shoulder-lateral.jpg",
+    "Images/x-ray/2026-04-28/shoulder-craniocaudal.jpg",
+    "Images/x-ray/2026-04-28/elbow-lateral-neutral-02.jpg",
+    "Images/x-ray/2026-04-28/elbow-lateral-neutral-01.jpg",
+    "Images/x-ray/2026-04-28/elbow-lateral-flexed.jpg",
+    "Images/x-ray/2026-04-28/elbow-craniocaudal-02.jpg",
+    "Images/x-ray/2026-04-28/elbow-craniocaudal-01.jpg",
+    "Images/x-ray/2026-04-28/carpus-stressed-lateral-02.jpg",
+    "Images/x-ray/2026-04-28/carpus-stressed-lateral-01.jpg",
+    "Images/x-ray/2022-10-20/thorax-lateral.jpg",
+    "Images/x-ray/2026-04-28",
+    "Images/x-ray/2022-10-20",
+    "Images/x-ray",
+    "Vet Visits.md",
+    "Images/2022-10-20",
+    "Images/2026-04-28",
+    "Images/April 2026",
+    "Images/untitled folder",
+    "Images/October 2022",
+    "Timeline.md",
+    "Bilateral Carpal and Toe Osteoarthritis.md",
+    "Diet and Supplements.md",
+    "Medications.md",
+    "Physiotherapy and Rehab.md",
+    "MIGRATION_SUMMARY.md",
+    "_archive/Medical Summary (Legacy).md"
+  ]
+}
