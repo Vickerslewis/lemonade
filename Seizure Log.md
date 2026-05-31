@@ -79,6 +79,9 @@ beginAtZero: true
 
 ## How to Log
 
+> [!tip]
+> Use the **New Seizure Entry** template to pre-fill today's date. Open the Templater modal (command palette → "Templater: Open insert template modal"), select `New Seizure Entry`, and paste the output at the top of the Detail Entries section. Then update the DataviewJS data array in `## Trends` with the new date.
+
 For each new event, record:
 
 - **Date and time** — as precisely as possible
