@@ -31,7 +31,7 @@ owner: Lewis Vickers
 
 ```dataview
 TABLE WITHOUT ID file.link AS "Condition", date_diagnosed AS "Diagnosed", severity AS "Severity"
-FROM "/"
+FROM ""
 WHERE type = "diagnosis" AND status = "active"
 SORT date_diagnosed ASC
 ```

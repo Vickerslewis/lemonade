@@ -2,11 +2,12 @@
 title: Idiopathic Epilepsy
 type: diagnosis
 date_created: 2026-05-13
-date_updated: 2026-05-13
+date_updated: 2026-05-31
 tags: [lemonade, health, diagnosis, epilepsy, neurology]
 condition: idiopathic-epilepsy
 status: active
 date_diagnosed: 2026-05
+severity: monitored — no anti-epileptic medication yet
 ---
 
 # Idiopathic Epilepsy
