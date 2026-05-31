@@ -26,7 +26,15 @@ owner: Lewis Vickers
 - **Weight:** 35 kg
 - **Owner:** Lewis Vickers
 - **Temperament:** Highly active, adventurous, outdoor-loving
-- **Known conditions:** [[Bilateral Carpal and Toe Osteoarthritis]], [[Idiopathic Epilepsy]]
+
+**Active conditions:**
+
+```dataview
+TABLE WITHOUT ID file.link AS "Condition", date_diagnosed AS "Diagnosed", severity AS "Severity"
+FROM "/"
+WHERE type = "diagnosis" AND status = "active"
+SORT date_diagnosed ASC
+```
 
 ## Map of Content
 
