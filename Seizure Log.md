@@ -25,6 +25,23 @@ tags: [lemonade, health, epilepsy, seizure-log]
 
 ---
 
+## Trends
+
+### Inter-Seizure Intervals
+
+```mermaid
+xychart-beta
+    title "Days Between Seizures"
+    x-axis ["S1 → S2 (Nov–Jan)", "S2 → S3 (Jan–Apr)"]
+    y-axis "Days" 0 --> 120
+    bar [55, 105]
+    line [55, 105]
+```
+
+> Average interval: **80 days** across 2 gaps (small sample — do not draw conclusions yet)
+
+---
+
 ## How to Log
 
 For each new event, record:
