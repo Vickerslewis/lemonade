@@ -8,7 +8,7 @@ species: Dog
 breed: {{TBD}}
 sex: {{TBD}}
 neutered: false
-date_of_birth: <% tp.date.now("YYYY-MM-DD") %>
+date_of_birth: YYYY-MM-DD
 weight_kg: {{TBD}}
 owner: {{TBD}}
 ---
