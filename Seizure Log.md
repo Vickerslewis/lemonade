@@ -64,16 +64,18 @@ dv.paragraph(
 );
 ```
 
-```mermaid
-xychart-beta
-    title "Days Between Seizures"
-    x-axis ["S1 → S2 (Nov–Jan)", "S2 → S3 (Jan–Apr)"]
-    y-axis "Days" 0 --> 120
-    bar [55, 105]
-    line [55, 105]
+```chart
+type: bar
+labels: ["S1 → S2 (Nov–Jan)", "S2 → S3 (Jan–Apr)"]
+series:
+  - title: Days Between Seizures
+    data: [55, 105]
+tension: 0.2
+width: 80%
+labelColors: false
+fill: false
+beginAtZero: true
 ```
-
-> Average interval: **80 days** across 2 gaps (small sample — do not draw conclusions yet)
 
 ---
 
