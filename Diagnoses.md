@@ -10,6 +10,13 @@ tags: [lemonade, health, diagnosis, moc]
 
 ## Active
 
+```dataview
+TABLE WITHOUT ID file.link AS "Condition", date_diagnosed AS "Diagnosed", severity AS "Severity", status AS "Status"
+FROM "/"
+WHERE type = "diagnosis" AND status = "active"
+SORT date_diagnosed ASC
+```
+
 ### [[Bilateral Carpal and Toe Osteoarthritis]]
 - **Diagnosed:** 2026-05 (confirmed by CT)
 - **Severity:** Severe on left fifth toe knuckle joint; milder bilateral changes in multiple knuckle joints
