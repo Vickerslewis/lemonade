@@ -1,8 +1,8 @@
 ---
 title: Medications
 type: medications
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, health, medications]
 ---
 

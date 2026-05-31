@@ -1,8 +1,8 @@
 ---
 title: {{Care Topic}}
 type: care
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, care, {{topic-tag}}]
 ---
 

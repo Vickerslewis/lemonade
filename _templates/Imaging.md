@@ -1,8 +1,8 @@
 ---
 title: Imaging History
 type: imaging
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, health, imaging]
 ---
 
@@ -12,11 +12,11 @@ tags: [lemonade, health, imaging]
 
 | Date | Modality | Region | Reason | Outcome |
 |---|---|---|---|---|
-| YYYY-MM-DD | CT / MRI / X-ray | {{region}} | {{reason}} | {{one-line outcome}} |
+| <% tp.date.now("YYYY-MM-DD") %> | CT / MRI / X-ray | {{region}} | {{reason}} | {{one-line outcome}} |
 
 ---
 
-## YYYY-MM-DD — Modality, Region
+## <% tp.date.now("YYYY-MM-DD") %> — Modality, Region
 
 **Reason:** {{TBD}}
 **Performed at:** {{TBD}}

@@ -1,12 +1,12 @@
 ---
 title: {{Condition Name}}
 type: diagnosis
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, health, diagnosis]
 condition: kebab-case-condition-slug
 status: active
-date_diagnosed: YYYY-MM-DD
+date_diagnosed: <% tp.date.now("YYYY-MM-DD") %>
 severity: {{TBD}}
 ---
 
@@ -20,7 +20,7 @@ Brief narrative overview of the condition: what it is, when it was diagnosed, an
 
 ## Diagnostic Findings
 
-- **Date:** YYYY-MM-DD
+- **Date:** <% tp.date.now("YYYY-MM-DD") %>
 - **Modality:** {{TBD}} (e.g., CT, MRI, physical examination)
 - **Key findings:**
   - Finding 1

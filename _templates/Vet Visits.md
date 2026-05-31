@@ -1,8 +1,8 @@
 ---
 title: Vet Visits
 type: vet-visits
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, health, vet-visits]
 ---
 
@@ -12,11 +12,11 @@ tags: [lemonade, health, vet-visits]
 
 | Date | Type | Location | Summary | Detail |
 |---|---|---|---|---|
-| YYYY-MM-DD | {{type}} | {{location}} | One-line summary | [↓ below](#yyyy-mm-dd--type) |
+| <% tp.date.now("YYYY-MM-DD") %> | {{type}} | {{location}} | One-line summary | [↓ below](#yyyy-mm-dd--type) |
 
 ---
 
-## YYYY-MM-DD — Visit Type
+## <% tp.date.now("YYYY-MM-DD") %> — Visit Type
 
 **Location:** {{TBD}}
 **Clinician:** {{TBD}}
@@ -37,5 +37,5 @@ tags: [lemonade, health, vet-visits]
 
 ### Follow-up
 
-- Action 1 — by YYYY-MM-DD
+- Action 1 — by <% tp.date.now("YYYY-MM-DD") %>
 - Action 2

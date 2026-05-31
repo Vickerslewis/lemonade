@@ -1,8 +1,8 @@
 ---
 title: Seizure Log
 type: seizure-log
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, health, epilepsy, seizure-log]
 ---
 
@@ -19,7 +19,7 @@ tags: [lemonade, health, epilepsy, seizure-log]
 
 | Date | Time | Duration | Type | Pre-ictal signs | Post-ictal | Recovery | Video |
 |---|---|---|---|---|---|---|---|
-| YYYY-MM-DD | HH:MM | ~X min | Generalised / Focal | {{summary}} | {{summary}} | ~X min | — |
+| <% tp.date.now("YYYY-MM-DD") %> | HH:MM | ~X min | Generalised / Focal | {{summary}} | {{summary}} | ~X min | — |
 
 ---
 
@@ -43,7 +43,7 @@ For each event, record:
 
 *(Most recent first)*
 
-### YYYY-MM-DD — HH:MM
+### <% tp.date.now("YYYY-MM-DD") %> — HH:MM
 
 - **Duration:** ~X minutes
 - **Type:** Generalised / Focal

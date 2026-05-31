@@ -1,14 +1,14 @@
 ---
 title: {{name}}
 type: hub
-date_created: YYYY-MM-DD
-date_updated: YYYY-MM-DD
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_updated: <% tp.date.now("YYYY-MM-DD") %>
 tags: [lemonade, moc]
 species: Dog
 breed: {{TBD}}
 sex: {{TBD}}
 neutered: false
-date_of_birth: YYYY-MM-DD
+date_of_birth: <% tp.date.now("YYYY-MM-DD") %>
 weight_kg: {{TBD}}
 owner: {{TBD}}
 ---
