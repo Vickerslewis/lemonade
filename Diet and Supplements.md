@@ -2,7 +2,7 @@
 title: Diet and Supplements
 type: care
 date_created: 2026-05-13
-date_updated: 2026-05-13
+date_updated: 2026-05-31
 tags: [lemonade, care, diet]
 ---
 
@@ -30,12 +30,6 @@ tags: [lemonade, care, diet]
 | Joint Plus Pro              | Joint support                                | [Riaflex](https://www.riaflex.co.uk/products/joint-plus-pro)                                      |
 | Type II hydrolysed collagen | Joint cartilage support                      | [Riaflex](https://www.riaflex.co.uk/products/type-ii-collagen)                                    |
 | Protexin Pro-Fibre          | Digestive / prebiotic support                | [Animed](https://www.animed.co.uk/protexin-pro-fibre-digestive-supplement-for-dogs-and-cats-500g) |
-
-## Weight Management
-
-- Weight is currently described as fine by the specialist
-- Maintaining lean body condition is one of the two most important factors in arthritis management (alongside activity)
-- Weight monitoring should continue at routine vet visits
 
 ## Weight Monitoring
 

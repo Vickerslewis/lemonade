@@ -2,7 +2,7 @@
 title: Lemonade
 type: hub
 date_created: 2026-05-13
-date_updated: 2026-05-13
+date_updated: 2026-05-31
 tags: [lemonade, moc]
 species: Dog
 breed: Golden Retriever
@@ -32,7 +32,7 @@ owner: Lewis Vickers
 ```dataview
 TABLE WITHOUT ID file.link AS "Condition", date_diagnosed AS "Diagnosed", severity AS "Severity"
 FROM ""
-WHERE type = "diagnosis" AND status = "active"
+WHERE type = "diagnosis" AND status = "active" AND !contains(file.path, "_templates")
 SORT date_diagnosed ASC
 ```
 
