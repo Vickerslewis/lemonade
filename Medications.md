@@ -59,6 +59,22 @@ tags: [lemonade, health, medications]
 | Fibor Vet Plus | Dietary fibre — anal gland support | Prescribed by vet |
 | Calmex Diffuser | Anxiety / stress reduction | Plug-in pheromone diffuser |
 
+## Reminders
+
+> [!note]
+> Check off when done. Recurring tasks reset automatically. View all outstanding reminders vault-wide via a Tasks query.
+
+### Periodic Treatments
+
+- [ ] Simparica Trio — monthly dose 🔁 every month 📅 2026-06-13
+- [ ] Cytopoint injection — check if flare-up warrants dose 🔁 every 3 months 📅 2026-08-13
+- [ ] Anal gland expression — check if needed 🔁 every 3 months 📅 2026-08-13
+
+### Follow-ups from May 2026 Specialist Visit
+
+- [ ] Arrange K-laser physiotherapy via local vet 📅 2026-06-07
+- [ ] 1-month reassessment with specialist 📅 2026-06-14
+
 ## Past Medications
 
 | Drug | Dose | Purpose | Dates | Reason Stopped |
