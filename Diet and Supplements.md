@@ -37,6 +37,13 @@ tags: [lemonade, care, diet]
 - Maintaining lean body condition is one of the two most important factors in arthritis management (alongside activity)
 - Weight monitoring should continue at routine vet visits
 
+## Weight Monitoring
+
+Lemonade's weight is recorded over time in [[Weight Log]] — update it at each vet visit or home weigh-in.
+
+> [!tip]
+> Maintaining lean body condition is one of the two most important factors in arthritis management (alongside activity). Even 1–2 kg above ideal meaningfully increases joint load.
+
 ## Joint-Supportive Options
 
 ### Omega-3 Fatty Acids
