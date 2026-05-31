@@ -70,10 +70,8 @@ labels: ["S1 → S2 (Nov–Jan)", "S2 → S3 (Jan–Apr)"]
 series:
   - title: Days Between Seizures
     data: [55, 105]
-tension: 0.2
 width: 80%
 labelColors: false
-fill: false
 beginAtZero: true
 ```
 
