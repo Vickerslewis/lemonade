@@ -29,6 +29,41 @@ tags: [lemonade, health, epilepsy, seizure-log]
 
 ### Inter-Seizure Intervals
 
+```dataviewjs
+// Update seizureDates when a new seizure is recorded
+const seizureDates = [
+  new Date("2025-11-19"),
+  new Date("2026-01-13"),
+  new Date("2026-04-28")
+];
+
+const today = new Date();
+const last = seizureDates[seizureDates.length - 1];
+const msPerDay = 1000 * 60 * 60 * 24;
+const daysSince = Math.floor((today - last) / msPerDay);
+
+const intervals = [];
+for (let i = 1; i < seizureDates.length; i++) {
+  intervals.push(Math.floor((seizureDates[i] - seizureDates[i - 1]) / msPerDay));
+}
+const avgInterval = Math.round(intervals.reduce((a, b) => a + b, 0) / intervals.length);
+
+const nextWindow = new Date(last);
+nextWindow.setDate(nextWindow.getDate() + avgInterval);
+
+const fmt = d => d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+dv.paragraph(
+  `| Stat | Value |\n` +
+  `|---|---|\n` +
+  `| **Total seizures** | ${seizureDates.length} |\n` +
+  `| **Last seizure** | ${fmt(last)} |\n` +
+  `| **Days since last** | ${daysSince} |\n` +
+  `| **Average interval** | ${avgInterval} days |\n` +
+  `| **Estimated next window** | around ${fmt(nextWindow)} *(small sample — do not draw conclusions)* |`
+);
+```
+
 ```mermaid
 xychart-beta
     title "Days Between Seizures"
