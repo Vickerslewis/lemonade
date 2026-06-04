@@ -2,7 +2,7 @@
 title: Imaging History
 type: imaging
 date_created: 2026-05-13
-date_updated: 2026-05-13
+date_updated: 2026-06-04
 tags: [lemonade, health, imaging]
 ---
 
@@ -12,22 +12,22 @@ tags: [lemonade, health, imaging]
 
 | Date | Modality | Region | Reason | Outcome |
 |---|---|---|---|---|
-| 2026-05 | MRI | Brain | Investigate seizures | Normal — idiopathic epilepsy confirmed |
-| 2026-05 | CT | Left forelimb, elbows, left humerus | Investigate bone lesion and lameness | Severe OA left fifth toe; mild bilateral changes; cancer ruled out |
+| 2026-05-12 | MRI | Brain | Investigate seizures | Normal — idiopathic epilepsy confirmed |
+| 2026-05-12 | CT | Both forelimbs, elbows, carpus, left humerus | Investigate bone lesion and lameness | Severe OA left 5th MCP; bilateral MCP changes; carpus and elbows normal; cancer ruled out |
 | 2026-04-28 | X-ray | Left forelimb (craniocaudal + lateral) | One week of limping | Irregular opacity, carpal/proximal metacarpal region; possible bone fragment |
 | 2022-10-20 | X-ray | Elbows (both) and pelvis | Lameness investigation | Bilateral elbow arthrosis; bilateral coxofemoral arthrosis |
 
 ---
 
-## 2026-05 — Brain MRI
+## 2026-05-12 — Brain MRI
 
 **Reason:** Investigate seizures
-**Context:** Performed alongside CT under the same general anaesthetic
+**Context:** Performed alongside CT under the same general anaesthetic; pre-operative ammonia levels normal
 
 ### Findings
 - No tumours
 - No structural abnormality
-- Slightly deeper brain folds noted — not clinically significant; unrelated to seizures
+- No significant abnormalities; no evidence of any mass lesions
 - No hydrocephalus or other concerning findings
 
 ### Conclusion
@@ -35,24 +35,29 @@ Normal brain MRI. Structural cause excluded. Confirms [[Idiopathic Epilepsy]].
 
 ---
 
-## 2026-05 — CT, Left Forelimb and Elbows
+## 2026-05-12 — CT, Both Forelimbs, Elbows, and Carpus
 
-**Reason:** Investigation of left forelimb lameness and possible bone lesion
+**Reason:** Investigation of left forelimb lameness and possible bone lesion (referred by Companion Care, Salford)
+**Specialist:** Nick Macdonald BVetMed MVM CertSAS Dip ECVS® MRCVS
 
 ### Findings
 
-**Elbows:** Normal — no dysplasia, no arthritis.
+**Elbows:** Normal — no elbow dysplasia, no osteoarthritis in either elbow.
 
-**Left humerus:** Small focal area consistent with old panosteitis — incidental finding. See [[Diagnoses#Old Panosteitis (Left Humerus)]].
+**Carpus:** Normal.
 
-**Left fifth toe:** Severe osteoarthritis with new bone formation around the knuckle joint. Small bone fragments visible.
+**Left humerus:** Small focal area consistent with old panosteitis — incidental finding, thought to be incidental. See [[Diagnoses#Old Panosteitis (Left Humerus)]].
 
-**Other knuckle joints (both forepaws):** Milder arthritic changes not visible on plain X-rays.
+**Metacarpophalangeal joints (both forepaws):** Osteoarthritis in multiple joints, particularly:
+- Right foot: 5th and 2nd MCP joints
+- Left foot: 2nd and 5th MCP joints
 
-**Bone tumour:** Ruled out. Changes are additive (new bone), not lytic (bone destruction). Affects both sides of joint — inconsistent with neoplasia.
+**Left 5th metacarpal (the primary lesion):** Proliferative periosteal reaction on the distal metacarpal bone and proximal phalanx. Periarticular mineralisation and moderate thickening of the joint capsule. No soft tissue mass. No lytic lesions.
+
+**Bone tumour:** Ruled out. Changes are additive (new bone / periosteal reaction), not lytic (bone destruction). No soft tissue mass. Pattern inconsistent with neoplasia.
 
 ### Conclusion
-[[Bilateral Carpal and Toe Osteoarthritis]] — severe on left fifth toe, milder bilateral changes elsewhere. Pattern consistent with an acute flare on top of longstanding chronic disease.
+[[Bilateral Carpal and Toe Osteoarthritis]] — severe on left 5th MCP joint, milder bilateral changes elsewhere. Carpus and elbows normal. Pattern consistent with a pre-existing severe osteoarthritis exacerbated by the trip ~3 weeks prior to presentation.
 
 ---
 

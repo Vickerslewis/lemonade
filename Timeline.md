@@ -2,7 +2,7 @@
 title: Timeline
 type: history
 date_created: 2026-05-13
-date_updated: 2026-05-13
+date_updated: 2026-06-04
 tags: [lemonade, history]
 ---
 
@@ -10,23 +10,24 @@ tags: [lemonade, history]
 
 ## 2026
 
-### May 2026
-- CT and MRI performed under general anaesthesia
-- Brain MRI clear — confirms [[Idiopathic Epilepsy]]
-- CT confirms severe osteoarthritis (left fifth toe) and bilateral milder changes in knuckle joints; cancer and elbow dysplasia ruled out
-- Treatment plan agreed: Onsior + paracetamol + padded boots + physiotherapy + activity
-- Specialist to write to local vet with full recommendations
+### June 2026
+- 2026-06-18 — Acupuncture, session 1 of 5 (booked)
 
-### May 2026 — Specialist Initial Consultation
-- Full physical examination; no concerns on the day
-- Plan confirmed for CT and MRI
+### May 2026
+- 2026-05-13 — Specialist referral letter sent to Companion Care (Nick Macdonald, NW Vet Specialists)
+- 2026-05-12 — CT and MRI under general anaesthesia; results discussed with owner same day
+  - Brain MRI: no abnormalities — confirms [[Idiopathic Epilepsy]]
+  - CT: severe MCP osteoarthritis (left 5th and 2nd, right 5th and 2nd); carpus and elbows normal; cancer ruled out
+  - Pre-operative ammonia levels: normal
+- 2026-05-12 — Treatment plan: paracetamol added to NSAID; boot for left foot; acupuncture (5 sessions); K-laser if needed; swimming; gradual exercise increase
+- 2026-05-05 — Initial consultation, NW Vet Specialists (Nick Macdonald): full physical exam; plan for CT and MRI confirmed
 
 ### April 2026
-- ~1 week of limping and slow walking on left forelimb (onset date unknown)
-- ~1 week of rest; recovered
-- Pavement vs grass surface preference noted
+- ~2026-04-14 — Tripped while outside; seemed okay immediately; lameness emerged on return from walk that day
+- ~1 week of limping and slow walking on left forelimb; pavement vs grass surface preference noted
+- Treated with meloxicam; improvement on soft ground; remained slow on hard ground
 - 2026-04-28 — Third seizure (~03:00, ~50 seconds, calm post-ictal — see [[Seizure Log]])
-- 2026-04-28 — X-rays of left forelimb at local vet; irregular opacity in carpal region noted; referral to specialist
+- 2026-04-28 — X-rays of left forelimb at Companion Care; irregular opacity in MCP region; referral to specialist
 - Differentials raised: old healed fracture with secondary arthritis vs osteosarcoma
 
 ### January 2026
@@ -42,7 +43,7 @@ tags: [lemonade, history]
 ## 2022
 
 ### October 2022
-- 2022-10-20 — Lameness episode investigated at local vet (Salford Vets For Pets)
+- 2022-10-20 — Lameness episode investigated at local vet (Companion Care, Salford)
 - Elbow and pelvis X-rays: bilateral elbow arthrosis; bilateral coxofemoral arthrosis — see [[Imaging History]]
 - Carpus and paws not imaged at this visit
 

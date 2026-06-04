@@ -2,7 +2,7 @@
 title: Medications
 type: medications
 date_created: 2026-05-13
-date_updated: 2026-05-31
+date_updated: 2026-06-04
 tags: [lemonade, health, medications]
 ---
 
@@ -30,6 +30,9 @@ tags: [lemonade, health, medications]
 
 > [!note]
 > Onsior and paracetamol can be safely given together.
+
+> [!warning]
+> The specialist referral letter (2026-05-13) recommends "paracetamol in addition to the meloxicam." The current NSAID recorded here is Onsior (robenacoxib), not meloxicam. Confirm with Companion Care which NSAID is actually being dispensed.
 
 > [!note]
 > Long-term NSAID use (Onsior) is safe with periodic blood monitoring and can be continued indefinitely if needed.
@@ -72,8 +75,9 @@ tags: [lemonade, health, medications]
 
 ### Follow-ups from May 2026 Specialist Visit
 
-- [ ] Arrange K-laser physiotherapy via local vet 📅 2026-06-07
-- [ ] 1-month reassessment with specialist 📅 2026-06-14
+- [ ] Acupuncture — first session 📅 2026-06-18
+- [ ] 4-week reassessment with specialist (or sooner if no improvement / deterioration) 📅 2026-06-10
+- [ ] Confirm which NSAID is being dispensed (Onsior vs meloxicam — see note above)
 
 ## Past Medications
 
