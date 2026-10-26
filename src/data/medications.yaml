@@ -9,15 +9,15 @@ current:
     status: Ongoing
 
 emergency:
-  - drug: Levetiracetam (reserve supply)
-    dose: 500 mg (1 tablet) every 8 hours for 5 days
+  - drug: Levetiracetam 1,000 mg tablets (reserve supply)
+    dose: 1,000 mg (1 tablet) every 8 hours for 5 days
     route: Oral
     when: As soon as the warning signs (prodrome) are recognised. Suggested times 07:00, 15:00, 23:00
     since: 2026-10-26
   - drug: Diazepam
     dose: "{{TBD}}"
     route: Rectal
-    when: If a seizure passes 3 minutes. Can be repeated if there is no response within 1–2 minutes. Then go to the emergency vet
+    when: Give straight away if he is still seizing at 3 minutes. If he is still seizing 1–2 minutes later, give a second dose. Then go straight to the emergency vet
     since: ~2026-01-19; extra supply 2026-10-26 (spare kit for the car)
 
 supplements:

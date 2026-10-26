@@ -5,11 +5,12 @@
   name: Vets Now — Manchester Hospital
   phone: 0161 222 6101
   address: 98 Bury Old Road, Whitefield, Manchester, M45 6TQ
-  notes: Open 24 hours a day, every day, including bank holidays. Go here for a seizure over 3 minutes or a second seizure within 24 hours.
+  notes: Open 24 hours a day, every day, including bank holidays. Go here for a seizure over 3 minutes (give diazepam first) or a second seizure within 24 hours.
   urgent: true
 
 - role: Owner
   name: Lewis Vickers
+  phone: +44 7826 855567
   email: hello@lewisvickers.com
   notes: Tell Lewis straight away about any warning signs or seizure.
 

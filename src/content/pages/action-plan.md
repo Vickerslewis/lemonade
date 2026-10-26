@@ -24,7 +24,7 @@ He usually settles and seems normal the next day. The seizure tends to come afte
 
 ## 2. Start levetiracetam
 
-- Give **1 tablet (500 mg) every 8 hours for 5 days**, starting straight away
+- Give **1 tablet (1,000 mg) every 8 hours for 5 days**, starting straight away
 - After the first tablet, move the doses onto 07:00, 15:00 and 23:00
 - Give it even if you're not sure; a false alarm does no harm
 - Tell the owner the date and time it was started
@@ -38,14 +38,16 @@ He usually settles and seems normal the next day. The seizure tends to come afte
 
 ## 4. During a seizure
 
-- **Note the time it starts.** Film it if you can
+- **Note the time it starts** (start a timer on your phone). Film it if you can
 - Move anything that could hurt him, **only if it is safe to**
 - On a hard floor, slide something soft under his head if it is safe
 - **Keep hands away from his mouth.** Jaw chattering causes bites
 - Turn the lights off, then leave the room and close the door. He can be confused and defensive afterwards
 
 > [!warning]
-> **If the seizure passes 3 minutes:** give rectal diazepam. If there is no response within 1–2 minutes, a second dose can be given. Then go to the emergency vet.
+> **Still seizing at 3 minutes? Give rectal diazepam straight away.** Don't wait to see if it stops on its own.
+>
+> If he is still seizing 1–2 minutes after the diazepam, give a second dose. Then take him straight to the emergency vet: **Vets Now Manchester, 0161 222 6101**.
 
 ## 5. After a seizure
 
@@ -56,7 +58,7 @@ He usually settles and seems normal the next day. The seizure tends to come afte
 
 ## When to go to the emergency vet
 
-- A seizure lasting more than 3 minutes (after giving diazepam)
+- A seizure lasting more than 3 minutes (give the diazepam first, then go)
 - A second seizure within 24 hours
 - He doesn't recover normally between seizures
 - New problems that persist, such as weakness, blindness or a behaviour change
