@@ -20,7 +20,7 @@ Structured records are YAML files in `src/data/`. Longer write-ups are Markdown 
 | A scan or X-ray | Add a Markdown file to `src/content/imaging/`; put images in `public/images/` |
 | Conditions | `src/content/conditions/` |
 | Action plan, diet, exercise, physio | `src/content/pages/` |
-| Contact details (owner and vets) | `src/data/contacts.yaml` |
+| Contact details (Lewis and the vets) | `src/data/contacts.yaml` |
 | Gaps or things to check | `src/data/open-questions.yaml` |
 | A seizure video | Add `video: https://youtu.be/<id>` (unlisted is fine) to that seizure in `src/data/seizures.yaml`. A compressed MP4 in `public/videos/` also works: `video: <file>.mp4` |
 

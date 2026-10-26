@@ -17,7 +17,8 @@ const pin = process.env.SITE_PIN?.trim();
 const pinHash = pin ? createHash('sha256').update(PIN_SALT + pin).digest('hex') : null;
 
 const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
-const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isCurrent = (item: { href: string; also?: string[] }) =>
+  item.href === '/' ? path === '/' : [item.href, ...(item.also ?? [])].some((h) => path.startsWith(h));
 const pageTitle = title === 'Lemonade' ? 'Lemonade' : `${title} · Lemonade`;
 ---
 
@@ -78,7 +79,7 @@ const pageTitle = title === 'Lemonade' ? 'Lemonade' : `${title} · Lemonade`;
             {
               NAV.map((item) => (
                 <li>
-                  <a href={url(item.href)} class={item.urgent ? 'urgent' : undefined} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                  <a href={url(item.href)} aria-current={isCurrent(item) ? 'page' : undefined}>
                     {item.label}
                   </a>
                 </li>

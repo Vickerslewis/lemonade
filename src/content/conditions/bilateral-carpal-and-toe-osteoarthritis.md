@@ -42,12 +42,12 @@ Chronic bilateral osteoarthritis affecting the knuckle (metacarpophalangeal) joi
 
 ### Medication
 
-- **None currently.** Paracetamol was given for a few weeks only; Onsior is not being given (confirmed by owner, 26 October 2026). See [medications](/medications/)
+- **None currently.** Paracetamol was given for a few weeks only; Onsior is not being given. See [medications](/medications/)
 - Arthritis has caused no problems since May 2026
 
 ### Physical
 
-- **Acupuncture** — weekly (started 18 June 2026); he sleeps through it
+- **Acupuncture** — weekly at Vets for Pets Salford (started 18 June 2026); he sleeps through it
 - **Boot** for the left (affected) foot — protection and more pain-free use on hard ground
 - **K-laser therapy with a physiotherapist** — next step if needed
 - **Swimming** — encouraged for fitness and joint mobility

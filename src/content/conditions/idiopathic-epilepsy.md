@@ -37,7 +37,7 @@ Warning signs (prodrome):
 
 After a seizure (post-ictal):
 
-- Seizures 1 and 2: aggressive barking and biting; did not recognise owner; resolved within ~20–40 minutes
+- Seizures 1 and 2: aggressive barking and biting; did not recognise his parents; resolved within ~20–40 minutes
 - Seizure 3: calm on waking; no aggression
 - Seizure 4: barking; settled in ~15 minutes
 - Seizure 5: lay on his side without moving for ~30–45 seconds before getting up; erratic, then calm within 10–15 minutes
@@ -50,6 +50,10 @@ After a seizure (post-ictal):
 - Post-cluster levetiracetam course (22–26 October 2026) finished — see [medications](/medications/)
 - **Next step if needed:** daily phenobarbital with regular blood monitoring
 - **Rescue:** rectal diazepam as soon as a seizure reaches 3 minutes
+
+### Acupuncture
+
+- Weekly at Vets for Pets Salford, as part of his care alongside the seizure plan. It also helps his arthritis and digestion — see [physiotherapy and rehab](/care/physiotherapy-and-rehab/)
 
 ### Diet and supplements
 
