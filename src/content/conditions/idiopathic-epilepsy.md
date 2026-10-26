@@ -46,10 +46,10 @@ After a seizure (post-ictal):
 
 ### Medication
 
-- **Plan (chosen 26 October 2026):** no daily medication. Levetiracetam 500 mg every 8 hours for 5 days whenever the warning signs are recognised. Follow the [action plan](/action-plan/)
+- **Plan (chosen 26 October 2026):** no daily medication. Levetiracetam 1,000 mg (1 tablet) every 8 hours for 5 days whenever the warning signs are recognised. Follow the [action plan](/action-plan/)
 - Post-cluster levetiracetam course (22–26 October 2026) finished — see [medications](/medications/)
 - **Next step if needed:** daily phenobarbital with regular blood monitoring
-- **Rescue:** rectal diazepam if a seizure passes 3 minutes
+- **Rescue:** rectal diazepam as soon as a seizure reaches 3 minutes
 
 ### Diet and supplements
 
@@ -69,7 +69,7 @@ After a seizure (post-ictal):
 - Supervise walks until he has fully recovered
 
 > [!important]
-> **Seek emergency vet care if** a seizure lasts longer than 3 minutes (give rectal diazepam first), two or more seizures happen within 24 hours, he doesn't recover normally between seizures, or new neurological signs (weakness, blindness, behaviour change) persist.
+> **Seek emergency vet care if** a seizure lasts longer than 3 minutes (give rectal diazepam at 3 minutes, then go), two or more seizures happen within 24 hours, he doesn't recover normally between seizures, or new neurological signs (weakness, blindness, behaviour change) persist.
 
 ## Prognosis
 

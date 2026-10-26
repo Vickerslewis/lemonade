@@ -67,7 +67,7 @@ The clinician recommended treatment now, mainly because of the cluster. Clusters
 
 ### Option 2 — Prodrome-triggered levetiracetam
 
-- When the warning signs are recognised, give levetiracetam for **5 days**: **1 tablet (500 mg) every 8 hours** (dose confirmed by owner; the recording discussed ~30 mg/kg)
+- When the warning signs are recognised, give levetiracetam for **5 days**: **1 tablet every 8 hours**. First recorded as 500 mg tablets; the supply is now **1,000 mg tablets**, so each dose is 1,000 mg (in line with the ~30 mg/kg discussed in the recording)
 - Goal: stop the seizure, or at least stop a cluster
 - Benefits: not on medication all the time, no ongoing liver monitoring, very well tolerated (occasional sleepiness)
 - Risks: may only delay the need for phenobarbital; a seizure or cluster could still happen
