@@ -49,7 +49,6 @@ Chronic bilateral osteoarthritis affecting the knuckle (metacarpophalangeal) joi
 
 - **Acupuncture** — weekly at Vets for Pets Salford (started 18 June 2026); he sleeps through it
 - **Boot** for the left (affected) foot — protection and more pain-free use on hard ground
-- **K-laser therapy with a physiotherapist** — next step if needed
 - **Swimming** — encouraged for fitness and joint mobility
 - **Activity** — gradually back to normal while he uses the limb well; sustained activity helps arthritis long-term
 
@@ -61,8 +60,9 @@ See [physiotherapy and rehab](/care/physiotherapy-and-rehab/) and [exercise](/ca
 - Joint supplement (glucosamine/chondroitin) or a prescription mobility diet — discussed as a future option
 - See [diet and supplements](/care/diet-and-supplements/)
 
-### Reserved options
+### Future options
 
+- K-laser therapy with a physiotherapist — if acupuncture isn't enough
 - NSAIDs (Onsior or similar) and paracetamol — if symptoms flare
 - Intra-articular injections (steroid, hyaluronic acid or PRP)
 - Surgery (joint fusion or toe amputation) — only if conservative treatment fails

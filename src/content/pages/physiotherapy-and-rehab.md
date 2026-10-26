@@ -1,14 +1,13 @@
 ---
 title: Physiotherapy and rehab
-description: Weekly acupuncture, the boot, swimming, and next steps.
+description: Weekly acupuncture, the boot, swimming, and future options.
 section: care
 order: 3
 ---
 
 ## Current plan
 
-1. **Acupuncture** — weekly at Vets for Pets Salford, ongoing (started 18 June 2026)
-2. **K-laser therapy** — next step if acupuncture isn't enough
+Weekly acupuncture at Vets for Pets Salford (since 18 June 2026), the boot on his left foot for pavement walks, and swimming.
 
 ## Active
 
@@ -34,19 +33,16 @@ First recommended by Nick Macdonald (Northwest Veterinary Specialists) for his a
 
 - Non-weight-bearing exercise, good for joint mobility; recommended by the specialist
 
-## Next step — K-laser therapy
+## Future options
+
+### K-laser therapy
 
 - **What:** Class IV laser therapy — promotes soft tissue healing and reduces inflammation
 - **When:** if acupuncture doesn't settle inflammation enough
 - **Frequency:** as advised by the physiotherapist
 - **Comfort:** not painful; may feel slightly warm; most dogs tolerate it well
-- **How:** ask Companion Care for a physiotherapist referral, or Northwest if they have a laser facility
+- **How:** ask Vets for Pets Salford for a physiotherapist referral, or Northwest if they have a laser facility
 
-## Future options
+### Intra-articular injections
 
-- **Intra-articular injections** (steroid, hyaluronic acid, stem cell/PRP) — not currently indicated; to consider if conservative treatment fails
-
-## Not yet recorded
-
-- Heat and cold — {{TBD}}
-- Home exercises from a physiotherapist — {{TBD}}
+- Steroid, hyaluronic acid, or stem cell/PRP — not currently indicated; to consider if conservative treatment fails
