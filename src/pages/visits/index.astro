@@ -8,10 +8,10 @@ const visits = (await getCollection('visits')).sort((a, b) => b.data.date.locale
 const years = [...new Set(visits.map((v) => v.data.date.slice(0, 4)))];
 ---
 
-<Base title="Vet visits" description="Every vet appointment, newest first.">
+<Base title="Appointment notes" description="Notes from Lemonade's key vet and specialist appointments.">
   <header class="page-head">
-    <h1>Vet visits</h1>
-    <p class="lede">All {visits.length} appointments, newest first. Open one for the full notes.</p>
+    <h1>Appointment notes</h1>
+    <p class="lede">Notes from his key vet and specialist appointments, newest first. Open one to read the full notes.</p>
   </header>
 
   {
