@@ -19,10 +19,10 @@ This is an [Obsidian](https://obsidian.md) vault containing structured notes on 
 ## Active Conditions
 
 **Bilateral Carpal and Toe Osteoarthritis**
-Confirmed by CT in May 2026. Severe osteoarthritis on the left fifth toe knuckle joint, with milder bilateral changes across multiple knuckle joints. Managed conservatively with NSAIDs, paracetamol, padded boots, and activity.
+Confirmed by CT in May 2026. Severe osteoarthritis on the left fifth toe knuckle joint, with milder bilateral changes across multiple knuckle joints. Managed conservatively with weekly acupuncture, padded boots, and activity; no current medication.
 
 **Idiopathic Epilepsy**
-Three generalised seizures recorded (November 2025, January 2026, April 2026). Brain MRI clear — no structural cause. Anti-epileptic medication not yet started.
+Five generalised seizures recorded (November 2025, January 2026, April 2026, and a cluster of two on 22 October 2026). Brain MRI clear — no structural cause. Levetiracetam is given for 5 days whenever his pre-seizure warning signs appear; no daily medication.
 
 ---
 
@@ -43,6 +43,7 @@ Three generalised seizures recorded (November 2025, January 2026, April 2026). B
 | [Exercise and Activity](Exercise%20and%20Activity.md) | Daily exercise guidance |
 | [Diet and Supplements](Diet%20and%20Supplements.md) | Nutrition, kibble, and joint supplements |
 | [Physiotherapy and Rehab](Physiotherapy%20and%20Rehab.md) | Physio, laser, acupuncture, boots |
+| [Seizure Action Plan](Seizure%20Action%20Plan.md) | What to do before, during and after a seizure — for carers |
 
 ### History
 | Note | Description |

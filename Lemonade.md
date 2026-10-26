@@ -2,7 +2,7 @@
 title: Lemonade
 type: hub
 date_created: 2026-05-13
-date_updated: 2026-05-31
+date_updated: 2026-10-26
 tags: [lemonade, moc]
 species: Dog
 breed: Golden Retriever
@@ -46,6 +46,7 @@ SORT date_diagnosed ASC
 - [[Seizure Log]] — every seizure event
 
 ### Care
+- [[Seizure Action Plan]] — what to do before, during and after a seizure
 - [[Exercise and Activity]] — daily exercise guidance
 - [[Diet and Supplements]] — nutrition and joint support
 - [[Physiotherapy and Rehab]] — physio, laser, acupuncture, boots
@@ -56,6 +57,8 @@ SORT date_diagnosed ASC
 
 ## Recent Updates
 
+- 2026-10-26 — Neurology consultation at Northwest. Treatment recommended after the cluster; prodrome-triggered levetiracetam chosen (no daily medication); baseline bloods taken. [[Seizure Action Plan]] created.
+- 2026-10-22 — Seizures 4 and 5 (cluster, 00:34 and 06:21). Emergency vet; levetiracetam started.
 - 2026-05 — CT and MRI completed. No cancer. Severe arthritis confirmed in left fifth toe with milder bilateral changes. Idiopathic epilepsy confirmed on brain MRI. Treatment plan agreed.
 - 2026-04-28 — Third seizure (03:00, ~50 seconds, calm post-ictal). X-rays of left forelimb taken same day; referral to specialist.
 - 2026-04 — Week of limping on left forelimb; rested and recovered. Pavement vs grass surface preference noted.

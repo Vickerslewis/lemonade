@@ -2,7 +2,7 @@
 title: Timeline
 type: history
 date_created: 2026-05-13
-date_updated: 2026-06-04
+date_updated: 2026-10-26
 tags: [lemonade, history]
 ---
 
@@ -10,8 +10,14 @@ tags: [lemonade, history]
 
 ## 2026
 
+### October 2026
+- 2026-10-26 — Neurology consultation at Northwest Veterinary Specialists. Idiopathic epilepsy re-confirmed; treatment recommended because of the cluster. Plan chosen: levetiracetam for 5 days whenever the prodrome is recognised (no daily medication). Baseline bloods taken — see [[Vet Visits]]
+- 2026-10-22 — Emergency vet (Vets Now, Manchester) after the cluster; vitals and neuro checks clear; levetiracetam started
+- 2026-10-22 — Seizures 4 (00:34) and 5 (06:21): first cluster, while the owner was abroad — see [[Seizure Log]]
+- 2026-10-21 — Prodrome from ~04:00 (pacing, staring, not settling)
+
 ### June 2026
-- 2026-06-18 — Acupuncture, session 1 of 5 (booked)
+- 2026-06-18 — Acupuncture, session 1 of 5 (booked); now weekly
 
 ### May 2026
 - 2026-05-13 — Specialist referral letter sent to Companion Care (Nick Macdonald, NW Vet Specialists)

@@ -25,8 +25,8 @@ SORT date_diagnosed ASC
 
 ### [[Idiopathic Epilepsy]]
 - **Diagnosed:** 2026-05 (confirmed by brain MRI — no structural cause)
-- **Seizures to date:** 3 (see [[Seizure Log]])
-- **Status:** Monitored; anti-epileptic medication not yet started
+- **Seizures to date:** 5, including a cluster on 2026-10-22 (see [[Seizure Log]])
+- **Status:** Levetiracetam for 5 days whenever the prodrome is recognised; no daily medication (Northwest, 2026-10-26). See [[Seizure Action Plan]]
 
 ## Managed (Ongoing)
 

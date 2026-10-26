@@ -26,8 +26,8 @@ tags: [lemonade, health, imaging]
 
 ### Findings
 - No tumours
-- No structural abnormality
-- No significant abnormalities; no evidence of any mass lesions
+- No structural abnormality — reported as a structurally normal brain; no evidence of any mass lesions
+- Mild increase of spinal fluid (CSF) around the midbrain/brainstem. Probably congenital; no clinical significance; in the wrong location to explain seizures. Explained by Northwest on 2026-10-26
 - No hydrocephalus or other concerning findings
 
 ### Conclusion

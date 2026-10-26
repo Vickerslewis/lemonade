@@ -333,6 +333,7 @@ When the same information could reasonably belong in multiple notes, the canonic
 | `Diet and Supplements.md` | care | Renamed from `Diet & Supplements.md` |
 | `Exercise and Activity.md` | care | Renamed from `Exercise & Activity.md` |
 | `Physiotherapy and Rehab.md` | care | Renamed from `Physiotherapy & Rehab.md` |
+| `Seizure Action Plan.md` | care | Added 2026-10-26 |
 | `Timeline.md` | history | |
 | `Childhood and Background.md` | history | |
 | `README.md` | meta | Simplified to short "start here" note |

@@ -2,7 +2,7 @@
 title: Bilateral Carpal and Toe Osteoarthritis
 type: diagnosis
 date_created: 2026-05-13
-date_updated: 2026-06-04
+date_updated: 2026-10-26
 tags:
   - lemonade
   - health
@@ -57,14 +57,13 @@ Chronic bilateral osteoarthritis affecting the knuckle (metacarpophalangeal) joi
 See [[Medications]] for the full current drug regimen and daily schedule.
 
 ### Medications
-- **Onsior (robenacoxib)** — daily NSAID, ongoing
-- **Paracetamol** — 500 mg, 3× daily, added on top of Onsior
-- Both can be safely given together; long-term use is safe with periodic blood monitoring
+- **None currently.** Paracetamol was given for a few weeks only; Onsior is not being given (confirmed by owner, 2026-10-26). See [[Medications]] for past use
+- Arthritis has caused no problems since May 2026
 
 ### Physical
+- **Acupuncture** — weekly (started 2026-06-18); he sleeps through it (see [[Physiotherapy and Rehab]])
 - **Boot** for the left (affected) foot — provides protection and allows more pain-free use on hard ground
-- **Acupuncture** — booked; 5 sessions starting 2026-06-18 (see [[Physiotherapy and Rehab]])
-- **K-laser therapy with physiotherapist** — next step after acupuncture if needed (see [[Physiotherapy and Rehab]])
+- **K-laser therapy with physiotherapist** — next step if needed (see [[Physiotherapy and Rehab]])
 - **Swimming** — encouraged for general fitness and joint mobility (see [[Exercise and Activity]])
 - **Activity** — gradually increase exercise back to normal while using limb well; sustained activity is beneficial for arthritis long-term
 
@@ -74,13 +73,14 @@ See [[Medications]] for the full current drug regimen and daily schedule.
 - See [[Diet and Supplements]] for current regimen and details
 
 ### Reserved Options
+- NSAIDs (Onsior or similar) and paracetamol — if symptoms flare
 - Intra-articular injections (steroid, hyaluronic acid, or PRP)
 - Surgical options (joint fusion or toe amputation) — only if conservative treatment fails
 - Gabapentin — if a nerve pain component develops
 
 ## Prognosis
 
-Progressive condition, but rate of change is unpredictable. May plateau and remain stable for years if no further injuries. NSAIDs and paracetamol can be continued long-term with monitoring. Not curative, but very manageable. A long, comfortable life is expected with proper management.
+Progressive condition, but rate of change is unpredictable. May plateau and remain stable for years if no further injuries. Currently managed without medication; NSAIDs and paracetamol can be used long-term with monitoring if needed. Not curative, but very manageable. A long, comfortable life is expected with proper management.
 
 ## Related Notes
 
