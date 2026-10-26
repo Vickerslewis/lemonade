@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactCard from '../components/ContactCard.astro';
+import { contacts } from '../lib/data';
+import { url } from '../lib/url';
+---
+
+<Base title="Contact" description="Lemonade's owner, emergency vet, specialist and local vet.">
+  <header class="page-head">
+    <p class="eyebrow">Who to call</p>
+    <h1>Contact</h1>
+    <p class="lede">
+      Tap a number to call. In a seizure emergency, follow the <a href={url('/action-plan/')}>action plan</a>.
+    </p>
+  </header>
+
+  <div class="grid grid-2">
+    {contacts.map((c) => <ContactCard contact={c} />)}
+  </div>
+</Base>

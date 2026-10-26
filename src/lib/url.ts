@@ -15,5 +15,5 @@ export const NAV = [
   { href: '/imaging/', label: 'Imaging' },
   { href: '/care/', label: 'Care' },
   { href: '/timeline/', label: 'Timeline' },
-  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
 ];
