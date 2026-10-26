@@ -47,6 +47,10 @@
 - date: 2026-04-14
   kind: life
   text: Tripped outside (approximate date); seemed fine, then lame on the way home. About a week of limping; treated with meloxicam; better on soft ground, still slow on hard ground.
+- date: 2026-01-22
+  kind: vet
+  text: First specialist consultation at the University of Liverpool Small Animal Teaching Hospital. Advised to wait for a pattern before an MRI or daily medication; rectal diazepam dispensed.
+  link: /visits/2026-01-22-first-specialist-consultation/
 - date: 2026-01-13
   kind: seizure
   text: Second seizure (~1 min 20 sec; aggressive and confused afterwards).

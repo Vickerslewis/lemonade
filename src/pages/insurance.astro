@@ -1,0 +1,266 @@
+---
+import Base from '../layouts/Base.astro';
+import { insurance as ins, formatDate, policyYearStart, claimsInPolicyYear, money } from '../lib/data';
+
+const today = new Date().toISOString().slice(0, 10);
+const thisYear = policyYearStart(today);
+const lastYear = `${Number(thisYear.slice(0, 4)) - 1}${thisYear.slice(4)}`;
+const yearEnd = (start: string) => {
+  const d = new Date(start + 'T00:00:00Z');
+  d.setUTCFullYear(d.getUTCFullYear() + 1);
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
+};
+
+const years = [thisYear, lastYear].map((start) => {
+  const claims = claimsInPolicyYear(start);
+  const claimed = claims.reduce((sum, c) => sum + c.claimed, 0);
+  return {
+    start,
+    end: yearEnd(start),
+    claims,
+    claimed,
+    share: Math.min(1, claimed / ins.vet_fee_limit),
+    excessPaid: claims.some((c) => c.note?.includes('excess')),
+  };
+});
+
+const totalClaimed = ins.claims.reduce((sum, c) => sum + c.claimed, 0);
+const totalPaid = ins.claims.reduce((sum, c) => sum + c.paid, 0);
+const visitDates = (c: { visit: string; visit_end?: string }) =>
+  c.visit_end ? `${formatDate(c.visit, true)} – ${formatDate(c.visit_end, true)}` : formatDate(c.visit, true);
+const outcomeClass = { Paid: 'badge badge-good', 'Part paid': 'badge', Declined: 'badge badge-critical' } as const;
+---
+
+<Base title="Insurance" description="Lemonade's ManyPets insurance: cover, limits and claims.">
+  <header class="page-head">
+    <h1>Insurance</h1>
+    <p class="lede">Lemonade is insured with {ins.insurer} on the {ins.plan} plan, with {money(ins.vet_fee_limit).replace('.00', '')} of vet fees a year.</p>
+  </header>
+
+  <div class="grid grid-2">
+    <section class="card" aria-labelledby="policy-title">
+      <h2 id="policy-title" style="margin-top:0">Policy</h2>
+      <dl class="facts">
+        <dt>Insurer</dt><dd>{ins.insurer} — {ins.plan}</dd>
+        <dt>Policy number</dt>
+        <dd>
+          <span class="policy-no">{ins.policy_number}</span>
+          <button class="copy" type="button" data-copy={ins.policy_number}>Copy</button>
+        </dd>
+        <dt>Policy year</dt><dd>{formatDate(ins.period_start)} – {formatDate(ins.period_end)}</dd>
+        <dt>Renews</dt><dd>{formatDate(ins.renews)}</dd>
+        <dt>Insured since</dt><dd>{formatDate(ins.insured_since)}</dd>
+        <dt>Vet fee limit</dt><dd>{money(ins.vet_fee_limit).replace('.00', '')} a year</dd>
+        <dt>Excess</dt><dd>£{ins.excess}, once per policy year</dd>
+        <dt>Co-payment</dt><dd>{ins.copayment}</dd>
+      </dl>
+    </section>
+
+    <section class="card claim-help" aria-labelledby="claim-title">
+      <h2 id="claim-title" style="margin-top:0">Making a claim</h2>
+      <p>Vets can register the claim directly through the {ins.insurer} Vet Portal using the policy number. Otherwise Lewis claims online.</p>
+      <ul>
+        <li>Claims line: <a href={`tel:${ins.contact.claims_phone.replace(/\s/g, '')}`}>{ins.contact.claims_phone}</a> ({ins.contact.claims_hours})</li>
+        <li>Claims email: <a href={`mailto:${ins.contact.claims_email}`}>{ins.contact.claims_email}</a></li>
+        <li>Customer support: <a href={`tel:${ins.contact.support_phone.replace(/\s/g, '')}`}>{ins.contact.support_phone}</a></li>
+        <li>Claim within 6 months of the treatment date</li>
+      </ul>
+    </section>
+  </div>
+
+  <h2>Vet fees used</h2>
+  <div class="grid grid-2">
+    {
+      years.map((y, i) => (
+        <div class="tile">
+          <p class="tile-label">{i === 0 ? 'This policy year' : 'Last policy year'} · {formatDate(y.start, true)} – {formatDate(y.end, true)}</p>
+          <p class="tile-value">
+            {money(y.claimed)} <small>claimed of {money(ins.vet_fee_limit).replace('.00', '')}</small>
+          </p>
+          <div class="meter" role="meter" aria-valuemin="0" aria-valuemax={ins.vet_fee_limit} aria-valuenow={y.claimed} aria-label={`Vet fees claimed: ${money(y.claimed)} of ${money(ins.vet_fee_limit)}`}>
+            <span style={`width:${(y.share * 100).toFixed(1)}%`} />
+          </div>
+          <p class="tile-note">
+            {y.claims.length} {y.claims.length === 1 ? 'claim' : 'claims'} · {(y.share * 100).toFixed(1)}% of the limit
+            {i === 0 && y.excessPaid && ' · excess already paid this year'}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+
+  <h2>What's covered</h2>
+  <div class="table-wrap">
+    <table class="stack">
+      <thead><tr><th>Cover</th><th>Limit</th><th>Notes</th></tr></thead>
+      <tbody>
+        {
+          ins.cover.map((c: any) => (
+            <tr>
+              <td class="row-title">{c.name}</td>
+              <td data-label="Limit">
+                <div>
+                  {c.limit}
+                  {c.within_vet_fees && <span class="meta"> (within vet fees)</span>}
+                </div>
+              </td>
+              <td data-label="Notes" class:list={{ 'hide-sm': !c.notes }}>{c.notes ?? '—'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Good to know</h2>
+  <ul class="rules">
+    {ins.rules.map((r: string) => <li>{r}</li>)}
+  </ul>
+
+  <h2>Claims</h2>
+  <div class="table-wrap">
+    <table class="stack">
+      <thead><tr><th>Vet visit</th><th>Condition</th><th class="num">Claimed</th><th class="num">Paid</th><th>Outcome</th></tr></thead>
+      <tbody>
+        {
+          ins.claims.map((c) => (
+            <tr>
+              <td class="row-title num">{visitDates(c)}</td>
+              <td data-label="Condition">
+                <div>
+                  {c.item}
+                  <span class="meta claim-note">{c.category}</span>
+                </div>
+              </td>
+              <td class="num" data-label="Claimed">{money(c.claimed)}</td>
+              <td class="num" data-label="Paid">{money(c.paid)}</td>
+              <td data-label="Outcome">
+                <div>
+                  <span class={outcomeClass[c.outcome]}>{c.outcome}</span>
+                  {c.note && <span class="meta claim-note">{c.note}</span>}
+                </div>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="row-title">Total</td>
+          <td class="hide-sm" />
+          <td class="num" data-label="Claimed">{money(totalClaimed)}</td>
+          <td class="num" data-label="Paid">{money(totalPaid)}</td>
+          <td class="hide-sm" />
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <h2>Documents</h2>
+  <ul class="rules">
+    {
+      ins.documents.map((d: any) => (
+        <li>
+          <a href={d.url} target="_blank" rel="noopener">{d.title}</a> (PDF)
+        </li>
+      ))
+    }
+  </ul>
+</Base>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('button[data-copy]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy ?? '');
+        button.textContent = 'Copied';
+        setTimeout(() => (button.textContent = 'Copy'), 2000);
+      } catch {
+        button.textContent = 'Select and copy';
+      }
+    });
+  });
+</script>
+
+<style>
+  .facts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    margin: 0;
+  }
+
+  .facts dt {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .facts dd {
+    margin: 0;
+  }
+
+  .policy-no {
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+
+  .copy {
+    margin-left: 6px;
+    padding: 2px 10px;
+    font: inherit;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .claim-help p {
+    margin: 0 0 10px;
+  }
+
+  .claim-help ul,
+  .rules {
+    margin: 0;
+    padding-left: 1.2em;
+  }
+
+  .claim-help li,
+  .rules li {
+    margin: 0.3em 0;
+  }
+
+  .rules {
+    max-width: 72ch;
+  }
+
+  /* Meter: the fill and its track are two steps of the same hue. */
+  .meter {
+    height: 10px;
+    margin: 12px 0 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--series-1) 18%, var(--surface));
+    overflow: hidden;
+  }
+
+  .meter span {
+    display: block;
+    height: 100%;
+    min-width: 6px;
+    border-radius: 999px;
+    background: var(--series-1);
+  }
+
+  .claim-note {
+    display: block;
+    margin-top: 2px;
+  }
+
+  tfoot td {
+    font-weight: 650;
+    border-top: 1px solid var(--axis);
+    border-bottom: 0;
+  }
+</style>

@@ -9,7 +9,7 @@ order: 1
 
 ## Summary
 
-Idiopathic epilepsy was confirmed after a brain MRI in May 2026 and re-confirmed by Northwest Veterinary Specialists on 26 October 2026. No structural brain abnormality, tumour or metabolic cause has been found. Lemonade has had five seizures in about 11 months. The two most recent formed a cluster (two within 24 hours) on 22 October 2026, and because of that cluster the neurologist now recommends treatment. He is unusual in having clear, reliable warning signs (a prodrome) 18–24 hours before a seizure.
+After his first two seizures, a specialist at the University of Liverpool advised waiting for a pattern before an MRI or daily medication ([22 January 2026](/visits/2026-01-22-first-specialist-consultation/)). Idiopathic epilepsy was then confirmed after a brain MRI in May 2026 and re-confirmed by Northwest Veterinary Specialists on 26 October 2026. No structural brain abnormality, tumour or metabolic cause has been found. Lemonade has had five seizures in about 11 months. The two most recent formed a cluster (two within 24 hours) on 22 October 2026, and because of that cluster the neurologist now recommends treatment. He is unusual in having clear, reliable warning signs (a prodrome) 18–24 hours before a seizure.
 
 ## Diagnostic findings
 

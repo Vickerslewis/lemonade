@@ -7,6 +7,7 @@ import contactsRaw from '../data/contacts.yaml?raw';
 import medicationsRaw from '../data/medications.yaml?raw';
 import timelineRaw from '../data/timeline.yaml?raw';
 import openQuestionsRaw from '../data/open-questions.yaml?raw';
+import insuranceRaw from '../data/insurance.yaml?raw';
 
 // YAML turns bare dates into Date objects; keep every date as a plain ISO string.
 function normaliseDates<T>(value: T): T {
@@ -71,6 +72,33 @@ export const contacts = load<Contact[]>(contactsRaw);
 export const medications = load<Record<string, any>>(medicationsRaw);
 export const timeline = load<TimelineEntry[]>(timelineRaw).sort((a, b) => b.date.localeCompare(a.date));
 export const openQuestions = load<Record<string, any>>(openQuestionsRaw);
+
+export interface Claim {
+  visit: string;
+  visit_end?: string;
+  category: string;
+  item: string;
+  claimed: number;
+  paid: number;
+  outcome: 'Paid' | 'Part paid' | 'Declined';
+  note?: string;
+}
+
+export const insurance = load<Record<string, any> & { claims: Claim[] }>(insuranceRaw);
+insurance.claims.sort((a, b) => b.visit.localeCompare(a.visit));
+
+// Policy years run from the anniversary of the start date; returns that year's start (YYYY-MM-DD).
+export function policyYearStart(iso: string) {
+  const anniversary = insurance.period_start.slice(5);
+  const year = Number(iso.slice(0, 4));
+  return iso.slice(5) >= anniversary ? `${year}-${anniversary}` : `${year - 1}-${anniversary}`;
+}
+
+export function claimsInPolicyYear(start: string) {
+  return insurance.claims.filter((c) => policyYearStart(c.visit) === start);
+}
+
+export const money = (n: number) => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const DAY = 86_400_000;
 const toTime = (iso: string) => Date.parse(iso + 'T00:00:00Z');

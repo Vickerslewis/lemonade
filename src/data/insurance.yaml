@@ -1,0 +1,133 @@
+insurer: ManyPets
+plan: Complete
+policy_number: 1031268000453130-791543
+insured_since: 2021-07-07
+period_start: 2026-07-07
+period_end: 2027-07-06
+renews: 2027-07-07
+vet_fee_limit: 15000
+excess: 99
+copayment: 0%
+
+contact:
+  claims_phone: 0345 646 1213
+  claims_hours: Mon–Fri 9am–5pm
+  claims_email: myclaim@manypets.com
+  support_phone: 0345 340 4090
+  account: https://manypets.com/uk/account
+
+documents:
+  - title: Pet Insurance Handbook
+    url: https://account.eu.policies.io/static/documents/MTIwMjYtMDUtMTY=/handbook.pdf
+  - title: Policy summary (IPID)
+    url: https://account.eu.policies.io/static/documents/MTIwMjYtMDUtMTY=/ipid_complete.pdf
+
+# Limits for the Complete plan. `within_vet_fees` items come out of the £15,000 vet fee limit.
+cover:
+  - name: Vet fees
+    limit: £15,000 a year
+    notes: Resets every policy year while the plan is renewed. Also covers emergency vet treatment abroad
+  - name: Complementary treatment
+    limit: £2,500 a year
+    within_vet_fees: true
+    notes: Acupuncture, physiotherapy, hydrotherapy, laser therapy, osteopathy, herbal medicines — if recommended by a vet
+  - name: MRI and CT scans
+    limit: Up to the vet fee limit
+    within_vet_fees: true
+    notes: If referred by a vet
+  - name: Behaviour treatment
+    limit: Up to the vet fee limit
+    within_vet_fees: true
+    notes: By a qualified behaviourist, if referred by a vet
+  - name: Dental illness and accidents
+    limit: Up to the vet fee limit
+    within_vet_fees: true
+  - name: Prescribed food
+    limit: £200
+    within_vet_fees: true
+    notes: Food prescribed by a vet to treat an injury or illness
+  - name: Cruciate ligament surgery
+    limit: Up to the vet fee limit
+    within_vet_fees: true
+  - name: Emergency boarding
+    limit: £2,000
+    notes: A licensed pet minder if Lewis or family have an unplanned hospital stay
+  - name: Travel cover
+    limit: £2,500
+    notes: Extra travel costs if he's unwell abroad; up to 90 days abroad each plan year
+  - name: Legal claims against you
+    limit: £2,000,000
+    notes: £250 excess per claim
+  - name: Farewell
+    limit: £300
+    notes: Vet costs, cremation and burial
+  - name: Death of your pet
+    limit: £6,000
+  - name: Missing or stolen
+    limit: £6,000
+
+rules:
+  - The £99 excess is taken once per policy year; after that, claims that year are paid in full.
+  - Claims must be made within 6 months of the treatment date.
+  - He must have an annual health and dental check-up with the vet, and vaccinations as the vet recommends — otherwise claims can be rejected.
+  - Pre-existing conditions are not covered. His April 2025 elbow X-rays were declined as pre-existing, so elbow problems are likely excluded.
+  - The excess may change at the renewal after his 9th birthday (November 2028).
+
+# Every claim, newest first (by date of vet visit). Amounts in pounds.
+claims:
+  - visit: 2026-10-22
+    category: Nervous system
+    item: Seizure (cluster, Vets Now)
+    claimed: 374.22
+    paid: 275.22
+    outcome: Paid
+    note: £99 excess taken
+  - visit: 2026-05-05
+    visit_end: 2026-05-12
+    category: Musculoskeletal disorder
+    item: Osteoarthritis (CT and MRI)
+    claimed: 4128.15
+    paid: 4128.15
+    outcome: Paid
+  - visit: 2026-04-20
+    visit_end: 2026-04-28
+    category: Musculoskeletal injury
+    item: Limping (X-rays)
+    claimed: 1727.49
+    paid: 1727.49
+    outcome: Paid
+  - visit: 2026-01-22
+    category: Neurological
+    item: Specialist consultation and rescue diazepam (University of Liverpool)
+    claimed: 293.55
+    paid: 293.55
+    outcome: Paid
+  - visit: 2025-11-19
+    category: Neurological
+    item: Seizure (first seizure)
+    claimed: 470.33
+    paid: 371.33
+    outcome: Paid
+    note: £99 excess taken
+  - visit: 2025-04-18
+    visit_end: 2025-04-25
+    category: Wound / injury
+    item: Elbow X-rays
+    claimed: 856.60
+    paid: 0
+    outcome: Declined
+    note: Pre-existing condition
+  - visit: 2025-04-04
+    visit_end: 2025-04-25
+    category: Dental
+    item: Chipped tooth
+    claimed: 906.56
+    paid: 341.77
+    outcome: Part paid
+    note: £99 excess; £465.79 of elbow X-ray items not covered
+  - visit: 2022-09-30
+    category: Musculoskeletal disorder
+    item: Limping
+    claimed: 1132.90
+    paid: 1132.90
+    outcome: Paid
