@@ -18,7 +18,7 @@ emergency:
     dose: "{{TBD}}"
     route: Rectal
     when: Give straight away if he is still seizing at 3 minutes. If he is still seizing 1–2 minutes later, give a second dose. Then go straight to the emergency vet
-    since: ~2026-01-19; extra supply 2026-10-26 (spare kit for the car)
+    since: 10 mg rectal tubes — 5 dispensed by the University of Liverpool on 2026-01-22; extra supply 2026-10-26 (spare kit for the car)
 
 supplements:
   - product: Aprylic MCT (liquid)
@@ -71,7 +71,7 @@ reminders:
   - task: Book Northwest recheck (within 6 months to stay under their care)
     due: 2027-03-26
     done: false
-  - task: Find and send the earlier specialist report (veterinary school hospital) to Northwest
+  - task: Ask the University of Liverpool to send the 22 January 2026 report to Northwest
     done: false
   - task: Annual health and dental check-up at the vet (required by the insurance)
     repeat: every year

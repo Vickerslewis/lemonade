@@ -98,4 +98,4 @@ The clinician recommended treatment now, mainly because of the cluster. Clusters
 - Blood results call from Northwest — by 28 October 2026
 - Contact Northwest by phone or email after **any** seizure; he does not always need to be seen. They may say "time to start phenobarbital"
 - Book a recheck within 6 months (~5 months, around March 2027) to stay under Northwest's care without a new referral from the local vet
-- Find the report from the earlier specialist discussion at the veterinary school hospital and send it to Northwest (it isn't on their file)
+- Ask the University of Liverpool to send the report from the [22 January 2026 consultation](/visits/2026-01-22-first-specialist-consultation/) to Northwest (it isn't on their file)

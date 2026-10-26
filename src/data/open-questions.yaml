@@ -1,10 +1,10 @@
 missing:
   - item: Rheumocam dose
     notes: Check prescription records
-  - item: Diazepam (rectal) dose
-    notes: Confirm with the vet
+  - item: Diazepam — how many 10 mg tubes per dose
+    notes: Tubes are 10 mg each; confirm with the vet how many to give for his weight
   - item: Diazepam (rectal) still in date?
-    notes: Prescribed ~2026-01-19; extra supply 2026-10-26
+    notes: Dispensed 2026-01-22; extra supply 2026-10-26
   - item: Seizure 1 and 2 time of day
     notes: Not noted at the time
   - item: Salmon oil source / brand
@@ -15,8 +15,8 @@ missing:
     notes: Ask Northwest
   - item: Aprylic MCT source and daily amount
     notes: Where it's bought and how much is given
-  - item: Earlier specialist report (veterinary school hospital)
-    notes: Find and send to Northwest; it isn't on their file
+  - item: University of Liverpool report (22 January 2026)
+    notes: Ask them to send it to Northwest; it isn't on their file
 
 discrepancies:
   - item: Seizure 1 warning signs
