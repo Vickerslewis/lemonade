@@ -99,6 +99,10 @@ export function seizureStats() {
   };
 }
 
+export function withoutTbd(text: string) {
+  return text.replace(/\{\{TBD\}\}/g, 'not recorded');
+}
+
 export function formatDuration(seconds: number) {
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;

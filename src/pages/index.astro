@@ -24,10 +24,10 @@ const links = [
 
 <Base title="Lemonade" description={profile.tagline}>
   <header class="page-head">
-    <p class="eyebrow">
+    <h1>{profile.name}</h1>
+    <p class="page-meta">
       {profile.breed} · born {formatDate(profile.date_of_birth)} · age <span data-age-from={profile.date_of_birth}>{ageOn(profile.date_of_birth, buildDate)}</span>
     </p>
-    <h1>{profile.name}</h1>
     <p class="lede">{profile.tagline}</p>
   </header>
 
@@ -117,17 +117,17 @@ const links = [
   </div>
 
   <section aria-labelledby="explore-title">
-    <h2 id="explore-title" class="section-title">Explore</h2>
-    <div class="grid grid-3">
+    <h2 id="explore-title">More in the record</h2>
+    <ul class="link-list">
       {
         links.map((l) => (
-          <a class="card" href={url(l.href)}>
-            <h3>{l.title}</h3>
-            <p>{l.text}</p>
-          </a>
+          <li>
+            <a href={url(l.href)}>{l.title}</a>
+            <span>{l.text}</span>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </section>
 </Base>
 
@@ -148,7 +148,33 @@ const links = [
     margin: 0;
   }
 
-  h2.section-title {
-    display: block;
+  .link-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    column-gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .link-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    border-top: 1px solid var(--grid);
+  }
+
+  .link-list a {
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .link-list a:hover {
+    text-decoration: underline;
+  }
+
+  .link-list span {
+    color: var(--ink-2);
+    font-size: 0.93rem;
   }
 </style>

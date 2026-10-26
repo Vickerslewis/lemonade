@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import remarkCallouts from './src/lib/remark-callouts.mjs';
 import remarkBaseLinks from './src/lib/remark-base-links.mjs';
+import remarkTbd from './src/lib/remark-tbd.mjs';
 
 const base = process.env.SITE_BASE ?? '/lemonade';
 
@@ -9,6 +10,6 @@ export default defineConfig({
   base,
   trailingSlash: 'always',
   markdown: {
-    remarkPlugins: [remarkCallouts, [remarkBaseLinks, { base }]],
+    remarkPlugins: [remarkCallouts, remarkTbd, [remarkBaseLinks, { base }]],
   },
 });

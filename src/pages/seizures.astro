@@ -17,7 +17,6 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
 
 <Base title="Seizures" description="Every seizure and warning-sign episode, with gaps and patterns.">
   <header class="page-head">
-    <p class="eyebrow">Idiopathic epilepsy</p>
     <h1>Seizure log</h1>
     <p class="lede">Every seizure and every episode of warning signs. Gaps count a cluster (two seizures in one day) as one episode.</p>
   </header>
@@ -96,7 +95,7 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
 
   <h2>All seizures</h2>
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead>
         <tr><th class="num">#</th><th>Date</th><th>Time</th><th>Duration</th><th>Warning signs</th><th>Afterwards</th><th>Recovery</th></tr>
       </thead>
@@ -104,38 +103,42 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
         {
           seizures.map((s) => (
             <tr>
-              <td class="num">{s.number}</td>
-              <td class="num">
-                <a href={`#seizure-${s.number}`}>{formatDate(s.date, true)}</a>
+              <td class="num hide-sm">{s.number}</td>
+              <td class="num row-title">
+                <a href={`#seizure-${s.number}`}>
+                  <span class="show-sm">Seizure {s.number} · </span>
+                  {formatDate(s.date, true)}
+                </a>
                 {s.cluster_with && <span class="badge badge-critical" style="margin-left:6px">Cluster</span>}
               </td>
-              <td class="num">{s.time ?? '—'}</td>
-              <td class="num">{formatDuration(s.duration_seconds)}</td>
-              <td>{s.prodrome}</td>
-              <td>{s.post_ictal}</td>
-              <td class="num">{s.recovery}</td>
+              <td class="num" data-label="Time">{s.time ?? '—'}</td>
+              <td class="num" data-label="Duration">{formatDuration(s.duration_seconds)}</td>
+              <td class="hide-sm">{s.prodrome}</td>
+              <td class="hide-sm">{s.post_ictal}</td>
+              <td data-label="Recovery">{s.recovery}</td>
             </tr>
           ))
         }
       </tbody>
     </table>
   </div>
+  <p class="meta show-sm">Tap a seizure for the warning signs and what happened afterwards.</p>
 
   <h2>Warning signs log</h2>
   <p class="meta">Every episode of warning signs, whether or not a seizure followed. Northwest use this to judge whether starting levetiracetam early is working.</p>
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead><tr><th>Date</th><th>Started</th><th>Signs</th><th>Levetiracetam started?</th><th>Seizure followed?</th><th>Notes</th></tr></thead>
       <tbody>
         {
           prodromes.map((p) => (
             <tr>
-              <td class="num">{formatDate(p.date, true)}</td>
-              <td class="num">{p.start ?? '—'}</td>
-              <td>{p.signs}</td>
-              <td>{p.levetiracetam}</td>
-              <td>{p.seizure_followed ? <span class="badge badge-critical">Yes</span> : <span class="badge badge-good">No</span>}</td>
-              <td>{p.notes ?? '—'}</td>
+              <td class="num row-title">{formatDate(p.date, true)}</td>
+              <td class="num" data-label="Started">{p.start ?? '—'}</td>
+              <td data-label="Signs">{p.signs}</td>
+              <td data-label="Levetiracetam">{p.levetiracetam}</td>
+              <td data-label="Seizure followed">{p.seizure_followed ? <span class="badge badge-critical">Yes</span> : <span class="badge badge-good">No</span>}</td>
+              <td data-label="Notes" class:list={{ 'hide-sm': !p.notes }}>{p.notes ?? '—'}</td>
             </tr>
           ))
         }

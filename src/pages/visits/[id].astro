@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { formatDate } from '../../lib/data';
+import { formatDate, withoutTbd } from '../../lib/data';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
@@ -19,12 +19,12 @@ const { Content } = await render(visit);
 <Base title={visit.data.title} description={visit.data.summary}>
   <p class="meta"><a href={url('/visits/')}>← All vet visits</a></p>
   <header class="page-head">
-    <p class="eyebrow">{formatDate(visit.data.date)} · {visit.data.type}</p>
     <h1>{visit.data.title}</h1>
-    <p class="lede">{visit.data.summary}</p>
-    <p class="meta" style="margin-top:8px">
-      {visit.data.location}{visit.data.clinician && ` · ${visit.data.clinician}`}
+    <p class="page-meta">
+      <time datetime={visit.data.date}>{formatDate(visit.data.date)}</time> · {visit.data.location}
+      {visit.data.clinician && <><br />Clinician: {withoutTbd(visit.data.clinician)}</>}
     </p>
+    <p class="lede">{visit.data.summary}</p>
   </header>
 
   <article class="prose">

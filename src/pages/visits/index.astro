@@ -10,9 +10,8 @@ const years = [...new Set(visits.map((v) => v.data.date.slice(0, 4)))];
 
 <Base title="Vet visits" description="Every vet appointment, newest first.">
   <header class="page-head">
-    <p class="eyebrow">{visits.length} appointments</p>
     <h1>Vet visits</h1>
-    <p class="lede">Every appointment, newest first. Open one for the full notes.</p>
+    <p class="lede">All {visits.length} appointments, newest first. Open one for the full notes.</p>
   </header>
 
   {

@@ -16,13 +16,13 @@ const STATUS = { active: 'Active', managed: 'Managed', historical: 'Historical',
 <Base title={condition.data.title} description={condition.data.summary}>
   <p class="meta"><a href={url('/conditions/')}>← All conditions</a></p>
   <header class="page-head">
-    <p class="eyebrow">
-      {STATUS[condition.data.status]}
-      {condition.data.diagnosed && ` · diagnosed ${formatDate(condition.data.diagnosed)}`}
-    </p>
     <h1>{condition.data.title}</h1>
+    <p class="page-meta">
+      <span class={condition.data.status === 'active' ? 'badge badge-active' : 'badge'}>{STATUS[condition.data.status]}</span>
+      {condition.data.diagnosed && ` Diagnosed ${formatDate(condition.data.diagnosed)}`}
+      {condition.data.severity && <><br />Severity: {condition.data.severity}</>}
+    </p>
     <p class="lede">{condition.data.summary}</p>
-    {condition.data.severity && <p class="meta" style="margin-top:8px">Severity: {condition.data.severity}</p>}
   </header>
 
   <article class="prose">

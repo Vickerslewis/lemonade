@@ -86,8 +86,8 @@ const mapUrl = c.address ? `https://www.google.com/maps/search/?api=1&query=${en
   }
 
   .urgent {
-    border-left: 4px solid var(--critical);
     background: var(--critical-bg);
+    border-color: color-mix(in srgb, var(--critical) 28%, transparent);
   }
 
   .urgent .ways .btn {
