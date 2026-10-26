@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import EmergencyBanner from '../components/EmergencyBanner.astro';
 import { profile, seizureStats, timeline, weights, formatDate, ageOn, daysBetween } from '../lib/data';
 import { url } from '../lib/url';
 
@@ -31,8 +30,6 @@ const links = [
     <h1>{profile.name}</h1>
     <p class="lede">{profile.tagline}</p>
   </header>
-
-  <EmergencyBanner />
 
   <section aria-labelledby="status-title">
     <div class="section-title">
