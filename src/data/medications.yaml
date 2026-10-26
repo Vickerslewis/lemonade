@@ -73,6 +73,9 @@ reminders:
     done: false
   - task: Find and send the earlier specialist report (veterinary school hospital) to Northwest
     done: false
+  - task: Annual health and dental check-up at the vet (required by the insurance)
+    repeat: every year
+    done: false
   - task: Cytopoint — check whether a flare-up needs a dose
     due: 2026-08-13
     repeat: every 3 months
