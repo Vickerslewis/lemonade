@@ -43,7 +43,7 @@ past:
     dose: "{{TBD}}"
     purpose: NSAID for arthritis
     dates: Prescribed 2026-05
-    reason: Not being given (owner, 2026-10-26)
+    reason: Not being given
   - drug: Rheumocam (meloxicam)
     dose: "{{TBD}}"
     purpose: NSAID — pain and inflammation

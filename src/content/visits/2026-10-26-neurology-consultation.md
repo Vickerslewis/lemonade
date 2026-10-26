@@ -7,22 +7,21 @@ clinician: "{{TBD}} (discussed with senior colleague, Pamela)"
 summary: Epilepsy review after the cluster. Treatment recommended; prodrome-triggered levetiracetam chosen; baseline bloods taken.
 ---
 
-**Appointment:** 11:30\
-**Source:** Owner's audio recording of the consultation (three parts, ~62 min), transcribed automatically. Names, drug names and numbers should be checked against the written discharge notes.
+**Appointment:** 11:30
 
 ## Reason for visit
 
-First epilepsy-focused consultation with Northwest following the cluster on 22 October 2026 (seizures 4 and 5, 00:34 and 06:21 — see the [seizure log](/seizures/)). The owner wanted to decide whether to start maintenance medication.
+First epilepsy-focused consultation with Northwest following the cluster on 22 October 2026 (seizures 4 and 5, 00:34 and 06:21 — see the [seizure log](/seizures/)), to decide whether to start maintenance medication.
 
 ## History given
 
 - Up to date with vaccines; not wormed; never travelled abroad
 - Diet: Butternut Box, 800 g/day (chicken, lamb, beef); no food or drug allergies
-- Cytopoint as needed when he starts biting his groin; anal glands expressed often (owner suspects pollen)
+- Cytopoint as needed when he starts biting his groin; anal glands expressed often (possibly pollen-related)
 - Arthritis: no problems since May 2026; weekly acupuncture; joint supplements
 - MCT oil supplement since the first seizure
 - On levetiracetam since 22 October: 1.5 × 500 mg tablets at 07:00, 15:00 and 23:00; no missed doses; timings adjusted gradually after the clocks went back
-- Owner's description of the warning signs: about 18–24 hours before, usually at night, he is extremely nervous, wakes the owner, jumps on the bed, won't settle for 3–4 hours, stares at the ceiling and pants. He then sleeps, seems fine the next day, and the seizure follows
+- Warning signs: about 18–24 hours before, usually at night, he is extremely nervous, wakes his parents, jumps on the bed, won't settle for 3–4 hours, stares at the ceiling and pants. He then sleeps, seems fine the next day, and the seizure follows
 - Several warning-sign nights in the last six months with no seizure; the household kept things low-stimulus for 24 hours each time
 - Seizure onset: he is asleep, slowly lifts his head at an odd angle, looks up at the ceiling, then seizes
 - Rarely urinates during a seizure; never defecates; mild salivation afterwards
@@ -67,12 +66,12 @@ The clinician recommended treatment now, mainly because of the cluster. Clusters
 
 ### Option 2 — Prodrome-triggered levetiracetam
 
-- When the warning signs are recognised, give levetiracetam for **5 days**: **1 tablet every 8 hours**. First recorded as 500 mg tablets; the supply is now **1,000 mg tablets**, so each dose is 1,000 mg (in line with the ~30 mg/kg discussed in the recording)
+- When the warning signs are recognised, give levetiracetam for **5 days**: **1 tablet (1,000 mg) every 8 hours**, about 30 mg/kg
 - Goal: stop the seizure, or at least stop a cluster
 - Benefits: not on medication all the time, no ongoing liver monitoring, very well tolerated (occasional sleepiness)
 - Risks: may only delay the need for phenobarbital; a seizure or cluster could still happen
 - Giving it after a "false alarm" is fine; no meaningful downside
-- Clinician's personal view: they would choose this for their own dog, and it suits Lemonade because his records are detailed and the owners work from home and can act quickly
+- Clinician's personal view: they would choose this for their own dog, and it suits Lemonade because his records are detailed and his parents work from home and can act quickly
 - Success is judged over months, not one event: one seizure in four months would not necessarily mean switching to phenobarbital. Keep counting warning-sign episodes and seizures
 
 ## Outcomes
@@ -99,4 +98,4 @@ The clinician recommended treatment now, mainly because of the cluster. Clusters
 - Blood results call from Northwest — by 28 October 2026
 - Contact Northwest by phone or email after **any** seizure; he does not always need to be seen. They may say "time to start phenobarbital"
 - Book a recheck within 6 months (~5 months, around March 2027) to stay under Northwest's care without a new referral from the local vet
-- Owner to find the report from the earlier specialist discussion at the veterinary school hospital (not on Northwest's file)
+- Find the report from the earlier specialist discussion at the veterinary school hospital and send it to Northwest (it isn't on their file)

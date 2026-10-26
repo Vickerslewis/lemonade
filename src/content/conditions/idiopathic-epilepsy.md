@@ -37,7 +37,7 @@ Warning signs (prodrome):
 
 After a seizure (post-ictal):
 
-- Seizures 1 and 2: aggressive barking and biting; did not recognise owner; resolved within ~20–40 minutes
+- Seizures 1 and 2: aggressive barking and biting; did not recognise his parents; resolved within ~20–40 minutes
 - Seizure 3: calm on waking; no aggression
 - Seizure 4: barking; settled in ~15 minutes
 - Seizure 5: lay on his side without moving for ~30–45 seconds before getting up; erratic, then calm within 10–15 minutes

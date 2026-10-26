@@ -8,7 +8,7 @@ summary: CT and MRI under general anaesthesia; results discussed the same day. N
 ---
 
 **Specialist:** Nick Macdonald BVetMed MVM CertSAS Dip ECVS® MRCVS — Diplomate of the European College of Veterinary Surgeons; RCVS Recognised Specialist in Small Animal Surgery\
-**Type:** Diagnostic imaging under general anaesthesia; results discussed with the owner the same day
+**Type:** Diagnostic imaging under general anaesthesia; results discussed the same day
 
 ## Pre-operative
 

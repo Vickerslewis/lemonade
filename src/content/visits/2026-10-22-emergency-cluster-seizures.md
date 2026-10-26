@@ -7,7 +7,7 @@ summary: Two seizures within 24 hours; vitals and neuro checks clear; levetirace
 ---
 
 **Address:** 98 Bury Old Road, Whitefield, Manchester, M45 6TQ (open 24/7)\
-**Reason:** Two seizures within 24 hours (00:34 and 06:21) while the owner was abroad; brought in by the carer.
+**Reason:** Two seizures within 24 hours (00:34 and 06:21) while Lewis was abroad; brought in by Paola, who was looking after him.
 
 ## Findings
 

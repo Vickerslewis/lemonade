@@ -27,7 +27,7 @@ He usually settles and seems normal the next day. The seizure tends to come afte
 - Give **1 tablet (1,000 mg) every 8 hours for 5 days**, starting straight away
 - After the first tablet, move the doses onto 07:00, 15:00 and 23:00
 - Give it even if you're not sure; a false alarm does no harm
-- Tell the owner the date and time it was started
+- Tell Lewis the date and time it was started
 
 ## 3. Keep things calm for 24 hours
 

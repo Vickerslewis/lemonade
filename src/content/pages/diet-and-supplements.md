@@ -8,7 +8,7 @@ order: 1
 ## Current diet
 
 - **Food:** Butternut Box — fresh cooked wet food, 800 g/day
-- **Proteins:** chicken, beef, pork and salmon meal varieties, rotated (the owner said chicken, lamb and beef in October 2026 — see [open questions](/open-questions/))
+- **Proteins:** chicken, lamb and beef, rotated
 - **Water intake:** normal
 
 > [!note]

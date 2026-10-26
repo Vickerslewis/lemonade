@@ -18,7 +18,7 @@ const links = [
   { href: '/visits/', title: 'Vet visits', text: 'Every appointment, newest first.' },
   { href: '/imaging/', title: 'Imaging', text: 'MRI, CT and X-rays, with images.' },
   { href: '/care/', title: 'Care', text: 'Diet, exercise and physiotherapy.' },
-  { href: '/contact/', title: 'Contact', text: 'Owner, emergency vet, specialist and local vet.' },
+  { href: '/contact/', title: 'Contact', text: 'Lewis, the emergency vet, specialist and local vet.' },
 ];
 ---
 
@@ -126,7 +126,7 @@ const links = [
         <dt>Sex</dt><dd>{profile.sex}, {profile.neutered ? 'neutered' : 'unneutered'}</dd>
         <dt>Born</dt><dd>{formatDate(profile.date_of_birth)}</dd>
         <dt>Weight</dt><dd>{latestWeight.kg} kg <span class="meta">({formatDate(latestWeight.date, true)})</span></dd>
-        <dt>Owner</dt><dd>{profile.owner}</dd>
+        <dt>Parent</dt><dd>{profile.parent}</dd>
         <dt>Temperament</dt><dd>{profile.temperament}</dd>
       </dl>
     </section>

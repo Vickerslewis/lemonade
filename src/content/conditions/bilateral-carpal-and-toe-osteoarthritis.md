@@ -42,7 +42,7 @@ Chronic bilateral osteoarthritis affecting the knuckle (metacarpophalangeal) joi
 
 ### Medication
 
-- **None currently.** Paracetamol was given for a few weeks only; Onsior is not being given (confirmed by owner, 26 October 2026). See [medications](/medications/)
+- **None currently.** Paracetamol was given for a few weeks only; Onsior is not being given. See [medications](/medications/)
 - Arthritis has caused no problems since May 2026
 
 ### Physical
