@@ -1,0 +1,96 @@
+summary: No daily medication. Arthritis is managed with weekly acupuncture only. Levetiracetam is given only when the warning signs start.
+
+current:
+  - drug: Cytopoint (lokivetmab)
+    class: Monoclonal antibody (anti-IL-31)
+    dose: 40 mg SC
+    frequency: 2–3 injections a year, as needed for flare-ups
+    purpose: Allergy management (groin biting; suspected pollen)
+    status: Ongoing
+
+emergency:
+  - drug: Levetiracetam (reserve supply)
+    dose: 500 mg (1 tablet) every 8 hours for 5 days
+    route: Oral
+    when: As soon as the warning signs (prodrome) are recognised. Suggested times 07:00, 15:00, 23:00
+    since: 2026-10-26
+  - drug: Diazepam
+    dose: "{{TBD}}"
+    route: Rectal
+    when: If a seizure passes 3 minutes. Can be repeated if there is no response within 1–2 minutes. Then go to the emergency vet
+    since: ~2026-01-19; extra supply 2026-10-26 (spare kit for the car)
+
+notes:
+  - type: warning
+    text: Give rectal diazepam if a seizure passes **3 minutes**, so it doesn't reach 5 minutes (status epilepticus). Advice from Northwest Veterinary Specialists, 26 October 2026 (previously 5 minutes).
+  - type: note
+    text: Levetiracetam is a human medicine used off-label in dogs. It is generally very well tolerated; occasional sleepiness, and wobbliness after large doses. Behaviour changes are usually positive (Lemonade is noticeably calmer on it).
+  - type: warning
+    text: Paracetamol is safe for dogs at the prescribed dose. **Never give it to cats** — it is lethal.
+  - type: tip
+    text: When introducing new medications, add one at a time where possible so the effect of each can be assessed.
+
+supplements:
+  - product: Aprylic MCT (liquid)
+    purpose: Medium-chain triglycerides — some evidence it reduces seizure frequency
+    notes: Daily since the first seizure; endorsed by Northwest 2026-10-26; no interaction with levetiracetam
+  - product: Fibor Vet Plus
+    purpose: Dietary fibre — anal gland support
+    notes: Prescribed by vet
+  - product: Calmex Diffuser
+    purpose: Anxiety and stress reduction
+    notes: Plug-in pheromone diffuser
+
+past:
+  - drug: Levetiracetam (Levetiracetam Accord 500 mg)
+    dose: 1,500 mg (3 tablets) loading dose, then 750 mg (1.5 tablets) every 8 hours
+    purpose: Post-cluster seizure control
+    dates: 2026-10-22 to 2026-10-26
+    reason: Course finished; switched to prodrome-triggered use
+  - drug: Paracetamol
+    dose: 500 mg 3× daily
+    purpose: Additional arthritis pain relief
+    dates: 2026-05, a few weeks
+    reason: Short course only
+  - drug: Onsior (robenacoxib)
+    dose: "{{TBD}}"
+    purpose: NSAID for arthritis
+    dates: Prescribed 2026-05
+    reason: Not being given (owner, 2026-10-26)
+  - drug: Rheumocam (meloxicam)
+    dose: "{{TBD}}"
+    purpose: NSAID — pain and inflammation
+    dates: 2026-04-20; 2026-04-28
+    reason: Short course; replaced by Onsior
+
+reserved:
+  - name: Phenobarbital
+    notes: Daily anti-epileptic; the best-evidenced option after a cluster. Next step if prodrome-triggered levetiracetam doesn't control seizures. Bloods 2 weeks after starting, then every 3–6 months (target serum level 25–30); wean over ~6 weeks if stopping.
+  - name: Zonisamide
+    notes: Add-on anti-epileptic option.
+  - name: Potassium bromide
+    notes: Not first-line; more side effects.
+  - name: Imepitoin (Pexion)
+    notes: Not recommended for Lemonade because he has had a cluster.
+  - name: Gabapentin
+    notes: If a nerve-pain component of the arthritis develops.
+  - name: Metacam, Loxicom, Onsior
+    notes: NSAIDs, if the arthritis flares. Onsior and paracetamol can be given together, and long-term NSAID use is safe with periodic blood monitoring. Don't stop paracetamol too early — inflammation outlasts pain, so continue ~2 weeks after symptoms resolve.
+
+reminders:
+  - task: Baseline blood results — Northwest to phone
+    due: 2026-10-28
+    done: false
+  - task: Book Northwest recheck (within 6 months to stay under their care)
+    due: 2027-03-26
+    done: false
+  - task: Find and send the earlier specialist report (veterinary school hospital) to Northwest
+    done: false
+  - task: Cytopoint — check whether a flare-up needs a dose
+    due: 2026-08-13
+    repeat: every 3 months
+    done: false
+  - task: Anal glands — check whether expression is needed
+    due: 2026-08-13
+    repeat: every 3 months
+    done: false

@@ -1,0 +1,208 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ChartFigure from '../components/ChartFigure.astro';
+import EmergencyBanner from '../components/EmergencyBanner.astro';
+import { seizures, prodromes, seizureStats, formatDate, formatDuration, daysBetween } from '../lib/data';
+import { laneEvents } from '../lib/events';
+
+const stats = seizureStats();
+const buildDate = new Date().toISOString().slice(0, 10);
+const events = await laneEvents();
+const gaps = stats.gaps.map((g, i) => ({ ...g, label: `gap-${i}` }));
+const patterns = await getEntry('pages', 'seizure-patterns');
+const { Content: Patterns } = await render(patterns!);
+const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet visit' } as const;
+---
+
+<Base title="Seizures" description="Every seizure and warning-sign episode, with gaps and patterns.">
+  <header class="page-head">
+    <p class="eyebrow">Idiopathic epilepsy</p>
+    <h1>Seizure log</h1>
+    <p class="lede">Every seizure and every episode of warning signs. Gaps count a cluster (two seizures in one day) as one episode.</p>
+  </header>
+
+  <div class="grid grid-4">
+    <div class="tile">
+      <p class="tile-label">Days since the last seizure</p>
+      <p class="tile-value"><span data-days-since={stats.last}>{daysBetween(stats.last, buildDate)}</span></p>
+      <p class="tile-note">{formatDate(stats.last)}</p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Seizures recorded</p>
+      <p class="tile-value">{stats.count}</p>
+      <p class="tile-note">{stats.episodes} episodes, {stats.clusters} cluster</p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Longest gap</p>
+      <p class="tile-value">{stats.longestGap} <small>days</small></p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Average gap</p>
+      <p class="tile-value">{stats.averageGap} <small>days</small></p>
+      <p class="tile-note">Small sample — not a prediction</p>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:14px">
+    <ChartFigure
+      title="Seizures, warning signs and vet visits"
+      subtitle="Since the first seizure. Hover or tap a mark for details."
+      chart="lanes"
+      points={events}
+      legend={[
+        { label: 'Seizure', shape: 'circle', color: 'var(--series-1)' },
+        { label: 'Warning signs', shape: 'diamond', color: 'var(--series-2)' },
+        { label: 'Vet visit', shape: 'square', color: 'var(--series-3)' },
+      ]}
+    >
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Event</th><th>Detail</th></tr></thead>
+          <tbody>
+            {
+              [...events].sort((a, b) => b.date.localeCompare(a.date)).map((e) => (
+                <tr>
+                  <td class="num">{formatDate(e.date, true)}</td>
+                  <td>{laneLabel[e.lane as keyof typeof laneLabel]}: {e.title}</td>
+                  <td>{e.detail}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </ChartFigure>
+
+    <ChartFigure title="Days between seizure episodes" subtitle="Lengthening until the October cluster." chart="intervals" points={gaps}>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>From</th><th>To</th><th class="num">Days</th></tr></thead>
+          <tbody>
+            {
+              gaps.map((g) => (
+                <tr>
+                  <td>{formatDate(g.from)}</td>
+                  <td>{formatDate(g.to)}</td>
+                  <td class="num">{g.days}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </ChartFigure>
+  </div>
+
+  <h2>All seizures</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th class="num">#</th><th>Date</th><th>Time</th><th>Duration</th><th>Warning signs</th><th>Afterwards</th><th>Recovery</th></tr>
+      </thead>
+      <tbody>
+        {
+          seizures.map((s) => (
+            <tr>
+              <td class="num">{s.number}</td>
+              <td class="num">
+                <a href={`#seizure-${s.number}`}>{formatDate(s.date, true)}</a>
+                {s.cluster_with && <span class="badge badge-critical" style="margin-left:6px">Cluster</span>}
+              </td>
+              <td class="num">{s.time ?? '—'}</td>
+              <td class="num">{formatDuration(s.duration_seconds)}</td>
+              <td>{s.prodrome}</td>
+              <td>{s.post_ictal}</td>
+              <td class="num">{s.recovery}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Warning signs log</h2>
+  <p class="meta">Every episode of warning signs, whether or not a seizure followed. Northwest use this to judge whether starting levetiracetam early is working.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Started</th><th>Signs</th><th>Levetiracetam started?</th><th>Seizure followed?</th><th>Notes</th></tr></thead>
+      <tbody>
+        {
+          prodromes.map((p) => (
+            <tr>
+              <td class="num">{formatDate(p.date, true)}</td>
+              <td class="num">{p.start ?? '—'}</td>
+              <td>{p.signs}</td>
+              <td>{p.levetiracetam}</td>
+              <td>{p.seizure_followed ? <span class="badge badge-critical">Yes</span> : <span class="badge badge-good">No</span>}</td>
+              <td>{p.notes ?? '—'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Patterns</h2>
+  <div class="card prose">
+    <Patterns />
+  </div>
+
+  <h2>Seizure details</h2>
+  <div class="grid">
+    {
+      seizures.map((s) => (
+        <article class="card" id={`seizure-${s.number}`}>
+          <p class="meta">
+            Seizure {s.number} · {formatDuration(s.duration_seconds)} · {s.type}
+            {s.cluster_with && <span class="badge badge-critical" style="margin-left:6px">Cluster with seizure {s.cluster_with}</span>}
+          </p>
+          <h3 style="margin-top:2px">
+            {formatDate(s.date)}
+            {s.time && ` · ${s.time}`}
+          </h3>
+          <dl class="detail">
+            {s.prodrome && (<><dt>Warning signs</dt><dd>{s.prodrome}</dd></>)}
+            {s.description && (<><dt>What happened</dt><dd>{s.description}</dd></>)}
+            {s.post_ictal && (<><dt>Afterwards</dt><dd>{s.post_ictal}</dd></>)}
+            {s.recovery && (<><dt>Recovery</dt><dd>{s.recovery}</dd></>)}
+            {s.triggers && (<><dt>Possible triggers</dt><dd>{s.triggers}</dd></>)}
+            {s.medications && (<><dt>Medication</dt><dd>{s.medications}</dd></>)}
+            {s.context && (<><dt>Context</dt><dd>{s.context}</dd></>)}
+          </dl>
+        </article>
+      ))
+    }
+  </div>
+
+  <div style="margin-top:40px"><EmergencyBanner /></div>
+</Base>
+
+<style>
+  .detail {
+    display: grid;
+    grid-template-columns: minmax(0, 9rem) 1fr;
+    gap: 6px 16px;
+    margin: 10px 0 0;
+  }
+
+  .detail dt {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .detail dd {
+    margin: 0;
+  }
+
+  @media (max-width: 520px) {
+    .detail {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    .detail dd {
+      margin-bottom: 8px;
+    }
+  }
+</style>

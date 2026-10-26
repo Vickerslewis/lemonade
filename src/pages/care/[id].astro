@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  return (await getCollection('pages'))
+    .filter((p) => p.data.section === 'care')
+    .map((page) => ({ params: { id: page.id }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<Base title={page.data.title} description={page.data.description}>
+  <p class="meta"><a href={url('/care/')}>← Care</a></p>
+  <header class="page-head">
+    <h1>{page.data.title}</h1>
+    <p class="lede">{page.data.description}</p>
+  </header>
+  <article class="prose">
+    <Content />
+  </article>
+</Base>

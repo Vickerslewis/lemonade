@@ -1,0 +1,157 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import EmergencyBanner from '../components/EmergencyBanner.astro';
+import { profile, seizureStats, timeline, weights, formatDate, ageOn, daysBetween } from '../lib/data';
+import { url } from '../lib/url';
+
+const stats = seizureStats();
+const buildDate = new Date().toISOString().slice(0, 10);
+const conditions = (await getCollection('conditions'))
+  .filter((c) => c.data.status === 'active' || c.data.status === 'managed')
+  .sort((a, b) => a.data.order - b.data.order);
+const recent = timeline.slice(0, 5);
+const latestWeight = weights[0];
+
+const links = [
+  { href: '/seizures/', title: 'Seizures', text: 'Every seizure and warning sign, with charts.' },
+  { href: '/medications/', title: 'Medications', text: 'Emergency meds, supplements and history.' },
+  { href: '/visits/', title: 'Vet visits', text: 'Every appointment, newest first.' },
+  { href: '/imaging/', title: 'Imaging', text: 'MRI, CT and X-rays, with images.' },
+  { href: '/care/', title: 'Care', text: 'Diet, exercise and physiotherapy.' },
+  { href: '/about/', title: 'About Lemonade', text: 'Background, personality and contacts.' },
+];
+---
+
+<Base title="Lemonade" description={profile.tagline}>
+  <header class="page-head">
+    <p class="eyebrow">
+      {profile.breed} · born {formatDate(profile.date_of_birth)} · age <span data-age-from={profile.date_of_birth}>{ageOn(profile.date_of_birth, buildDate)}</span>
+    </p>
+    <h1>{profile.name}</h1>
+    <p class="lede">{profile.tagline}</p>
+  </header>
+
+  <EmergencyBanner />
+
+  <section aria-labelledby="status-title">
+    <div class="section-title">
+      <h2 id="status-title">Epilepsy at a glance</h2>
+      <a href={url('/seizures/')}>Seizure log →</a>
+    </div>
+    <div class="grid grid-2">
+      <div class="tile">
+        <p class="tile-label">Days since the last seizure</p>
+        <p class="hero-figure" style="margin:6px 0 0"><span data-days-since={stats.last}>{daysBetween(stats.last, buildDate)}</span></p>
+        <p class="tile-note">Last seizure {formatDate(stats.last)}</p>
+      </div>
+      <div class="grid grid-4" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="tile">
+          <p class="tile-label">Seizures recorded</p>
+          <p class="tile-value">{stats.count}</p>
+          <p class="tile-note">Since {formatDate(stats.first, true)}</p>
+        </div>
+        <div class="tile">
+          <p class="tile-label">Clusters</p>
+          <p class="tile-value">{stats.clusters}</p>
+          <p class="tile-note">2+ seizures in 24 h</p>
+        </div>
+        <div class="tile">
+          <p class="tile-label">Longest gap</p>
+          <p class="tile-value">{stats.longestGap} <small>days</small></p>
+        </div>
+        <div class="tile">
+          <p class="tile-label">Average gap</p>
+          <p class="tile-value">{stats.averageGap} <small>days</small></p>
+        </div>
+      </div>
+    </div>
+    <p class="card" style="margin-top:14px"><strong>Current plan:</strong> {profile.plan_summary}</p>
+  </section>
+
+  <section aria-labelledby="conditions-title">
+    <div class="section-title">
+      <h2 id="conditions-title">Conditions</h2>
+      <a href={url('/conditions/')}>All conditions →</a>
+    </div>
+    <div class="grid grid-2">
+      {
+        conditions.map((c) => (
+          <a class="card" href={url(`/conditions/${c.id}/`)}>
+            <p class="meta" style="margin-bottom:6px">
+              <span class={c.data.status === 'active' ? 'badge badge-active' : 'badge'}>{c.data.status === 'active' ? 'Active' : 'Managed'}</span>
+            </p>
+            <h3>{c.data.title}</h3>
+            <p>{c.data.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <div class="grid grid-2" style="margin-top:40px">
+    <section class="card" aria-labelledby="recent-title">
+      <h2 id="recent-title" style="margin-top:0">Recent events</h2>
+      <ol class="timeline">
+        {
+          recent.map((e) => (
+            <li data-kind={e.kind}>
+              <time datetime={e.date}>{formatDate(e.date)}</time>
+              <p>{e.text}</p>
+              {e.link && <a class="meta" href={url(e.link)}>Details →</a>}
+            </li>
+          ))
+        }
+      </ol>
+      <a href={url('/timeline/')}>Full timeline →</a>
+    </section>
+
+    <section class="card" aria-labelledby="facts-title">
+      <h2 id="facts-title" style="margin-top:0">Quick facts</h2>
+      <dl class="facts">
+        <dt>Breed</dt><dd>{profile.breed}</dd>
+        <dt>Sex</dt><dd>{profile.sex}, {profile.neutered ? 'neutered' : 'unneutered'}</dd>
+        <dt>Born</dt><dd>{formatDate(profile.date_of_birth)}</dd>
+        <dt>Weight</dt><dd>{latestWeight.kg} kg <span class="meta">({formatDate(latestWeight.date, true)})</span></dd>
+        <dt>Owner</dt><dd>{profile.owner}</dd>
+        <dt>Temperament</dt><dd>{profile.temperament}</dd>
+      </dl>
+    </section>
+  </div>
+
+  <section aria-labelledby="explore-title">
+    <h2 id="explore-title" class="section-title">Explore</h2>
+    <div class="grid grid-3">
+      {
+        links.map((l) => (
+          <a class="card" href={url(l.href)}>
+            <h3>{l.title}</h3>
+            <p>{l.text}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .facts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    margin: 0;
+  }
+
+  .facts dt {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .facts dd {
+    margin: 0;
+  }
+
+  h2.section-title {
+    display: block;
+  }
+</style>

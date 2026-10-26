@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate } from '../../lib/data';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  return (await getCollection('conditions')).map((condition) => ({ params: { id: condition.id }, props: { condition } }));
+}
+
+const { condition } = Astro.props;
+const { Content } = await render(condition);
+const STATUS = { active: 'Active', managed: 'Managed', historical: 'Historical', 'ruled-out': 'Ruled out' };
+---
+
+<Base title={condition.data.title} description={condition.data.summary}>
+  <p class="meta"><a href={url('/conditions/')}>← All conditions</a></p>
+  <header class="page-head">
+    <p class="eyebrow">
+      {STATUS[condition.data.status]}
+      {condition.data.diagnosed && ` · diagnosed ${formatDate(condition.data.diagnosed)}`}
+    </p>
+    <h1>{condition.data.title}</h1>
+    <p class="lede">{condition.data.summary}</p>
+    {condition.data.severity && <p class="meta" style="margin-top:8px">Severity: {condition.data.severity}</p>}
+  </header>
+
+  <article class="prose">
+    <Content />
+  </article>
+</Base>

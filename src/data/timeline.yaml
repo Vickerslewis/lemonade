@@ -1,0 +1,70 @@
+# Key events, newest first. `date` may be YYYY-MM-DD, YYYY-MM or YYYY.
+# kind: seizure | prodrome | vet | treatment | life
+
+- date: 2026-10-26
+  kind: vet
+  text: Neurology consultation at Northwest Veterinary Specialists. Idiopathic epilepsy re-confirmed; treatment recommended because of the cluster. Plan chosen — levetiracetam for 5 days whenever the warning signs appear, no daily medication. Baseline bloods taken.
+  link: /visits/2026-10-26-neurology-consultation/
+- date: 2026-10-22
+  kind: vet
+  text: Emergency vet (Vets Now, Manchester) after the cluster; vitals and neuro checks clear; levetiracetam started.
+  link: /visits/2026-10-22-emergency-cluster-seizures/
+- date: 2026-10-22
+  kind: seizure
+  text: Seizures 4 (00:34) and 5 (06:21) — his first cluster, while the owner was abroad.
+  link: /seizures/
+- date: 2026-10-21
+  kind: prodrome
+  text: Warning signs from ~04:00 (pacing, staring, not settling).
+- date: 2026-06-18
+  kind: treatment
+  text: Acupuncture starts (first of 5 booked sessions); now weekly.
+- date: 2026-05-31
+  kind: prodrome
+  text: Warning signs in the morning; calm, quiet day kept and no seizure followed.
+- date: 2026-05-13
+  kind: vet
+  text: Specialist referral letter sent to Companion Care (Nick Macdonald, Northwest Veterinary Specialists).
+- date: 2026-05-12
+  kind: vet
+  text: CT and MRI under general anaesthesia; results discussed the same day. Brain MRI normal (confirms idiopathic epilepsy). CT — severe osteoarthritis in the knuckle joints (left 5th and 2nd, right 5th and 2nd); carpus and elbows normal; cancer ruled out. Pre-operative ammonia normal.
+  link: /visits/2026-05-12-ct-and-mri-scans/
+- date: 2026-05-12
+  kind: treatment
+  text: Treatment plan — paracetamol added to NSAID, boot for the left foot, acupuncture (5 sessions), K-laser if needed, swimming, gradual return to exercise.
+- date: 2026-05-05
+  kind: vet
+  text: Initial consultation at Northwest Veterinary Specialists (Nick Macdonald) — full physical exam; CT and MRI planned.
+  link: /visits/2026-05-05-initial-consultation/
+- date: 2026-04-28
+  kind: seizure
+  text: Third seizure (~03:00, ~50 seconds, calm afterwards), the night after general anaesthesia.
+  link: /seizures/
+- date: 2026-04-28
+  kind: vet
+  text: X-rays of the left forelimb at Companion Care; irregular opacity in the knuckle region; referral to specialist. Differentials — old healed fracture with arthritis vs osteosarcoma.
+  link: /visits/2026-04-28-x-rays/
+- date: 2026-04-14
+  kind: life
+  text: Tripped outside (approximate date); seemed fine, then lame on the way home. About a week of limping; treated with meloxicam; better on soft ground, still slow on hard ground.
+- date: 2026-01-13
+  kind: seizure
+  text: Second seizure (~1 min 20 sec; aggressive and confused afterwards).
+  link: /seizures/
+- date: 2025-11-19
+  kind: seizure
+  text: First seizure (~1 min; aggressive afterwards). Physical, neuro exam and bloods all normal. Advice — monitor; treat if it recurs within 3 months.
+  link: /seizures/
+- date: 2022-10-20
+  kind: vet
+  text: Lameness investigated at Companion Care, Salford. Elbow and pelvis X-rays — bilateral elbow arthrosis; bilateral hip arthrosis. Carpus and paws not imaged.
+  link: /visits/2022-10-20-lameness-investigation/
+- date: 2021-01-20
+  kind: vet
+  text: Limping episode investigated at the local vet.
+- date: 2020-11-11
+  kind: vet
+  text: First recorded allergy visit at the local vet.
+- date: 2019-11-16
+  kind: life
+  text: Born. Active outdoor life from a young age — hiking and exploring. Possible juvenile panosteitis ("growing pains"), seen later on CT as an old change in the left humerus.

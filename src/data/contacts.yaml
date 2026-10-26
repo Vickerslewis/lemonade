@@ -1,0 +1,15 @@
+- role: Owner
+  name: Lewis Vickers
+  notes: Tell straight away about any warning signs or seizure
+
+- role: Neurology specialist
+  name: Northwest Veterinary Specialists
+  notes: Contact after any seizure, even a short one (owner will contact them)
+
+- role: Emergency vet (24/7)
+  name: Vets Now — Manchester Hospital
+  address: 98 Bury Old Road, Whitefield, Manchester, M45 6TQ
+
+- role: Local vet
+  name: Companion Care (Pets at Home)
+  address: Regents Retail Park, Salford, M5 4QU

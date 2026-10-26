@@ -1,0 +1,17 @@
+{
+  "name": "lemonade",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "d3": "7.9.0",
+    "js-yaml": "4.1.0",
+    "unist-util-visit": "5.0.0"
+  }
+}

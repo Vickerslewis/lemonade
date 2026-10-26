@@ -1,0 +1,49 @@
+---
+interface Legend {
+  label: string;
+  shape: 'circle' | 'diamond' | 'square' | 'bar' | 'line';
+  color: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  chart: 'intervals' | 'lanes' | 'weight';
+  points: unknown[];
+  legend?: Legend[];
+}
+
+const { title, subtitle, chart, points, legend = [] } = Astro.props;
+---
+
+<figure class="chart-card">
+  <figcaption>
+    <strong>{title}</strong>
+    {subtitle && <span>{subtitle}</span>}
+  </figcaption>
+  {
+    legend.length > 1 && (
+      <ul class="legend">
+        {legend.map((item) => (
+          <li>
+            <svg viewBox="0 0 12 12" aria-hidden="true">
+              {item.shape === 'circle' && <circle cx="6" cy="6" r="5" style={`fill:${item.color}`} />}
+              {item.shape === 'diamond' && <path d="M6 0.5 11.5 6 6 11.5 0.5 6Z" style={`fill:${item.color}`} />}
+              {item.shape === 'square' && <rect x="1" y="1" width="10" height="10" rx="2" style={`fill:${item.color}`} />}
+            </svg>
+            {item.label}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  <div class="chart" data-chart={chart} data-points={JSON.stringify(points)}></div>
+  <details class="more">
+    <summary>Show as a table</summary>
+    <slot />
+  </details>
+</figure>
+
+<script>
+  import '../scripts/charts';
+</script>
