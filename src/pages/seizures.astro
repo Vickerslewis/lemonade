@@ -13,7 +13,8 @@ const events = await laneEvents();
 const gaps = stats.gaps.map((g, i) => ({ ...g, label: `gap-${i}` }));
 const patterns = await getEntry('pages', 'seizure-patterns');
 const { Content: Patterns } = await render(patterns!);
-const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet visit' } as const;
+const youtubeId = (video: string) => video.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/)?.[1];
+const laneLabel ={ seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet visit' } as const;
 ---
 
 <Base title="Seizures" description="Every seizure and warning-sign episode, with gaps and patterns.">
@@ -185,9 +186,18 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
                 </span>
                 <span class="sv-note">Footage of the seizure — it can be upsetting to watch</span>
               </summary>
-              <video controls preload="none" playsinline src={url(`/videos/${s.video}`)}>
-                <a href={url(`/videos/${s.video}`)}>Download the video</a>
-              </video>
+              {youtubeId(s.video) ? (
+                <>
+                  <div class="video-frame" data-youtube={youtubeId(s.video)} data-title={`Video of seizure ${s.number}, ${formatDate(s.date)}`} />
+                  <p class="meta video-link">
+                    Not playing? <a href={s.video} target="_blank" rel="noopener">Open it on YouTube</a>
+                  </p>
+                </>
+              ) : (
+                <video controls preload="none" playsinline src={url(`/videos/${s.video}`)}>
+                  <a href={url(`/videos/${s.video}`)}>Download the video</a>
+                </video>
+              )}
             </details>
           )}
         </article>
@@ -199,10 +209,25 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
 </Base>
 
 <script>
-  // Closing the panel stops the footage rather than leaving it playing out of sight.
+  // Nothing loads until a panel is opened; closing it stops the footage rather than leaving it playing out of sight.
   document.querySelectorAll<HTMLDetailsElement>('.seizure-video').forEach((panel) => {
+    const frame = panel.querySelector<HTMLElement>('.video-frame');
     panel.addEventListener('toggle', () => {
-      if (!panel.open) panel.querySelector('video')?.pause();
+      if (frame) {
+        if (panel.open && !frame.querySelector('iframe')) {
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube-nocookie.com/embed/${frame.dataset.youtube}?rel=0&playsinline=1`;
+          iframe.title = frame.dataset.title ?? 'Seizure video';
+          iframe.allow = 'accelerometer; encrypted-media; fullscreen; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+          frame.prepend(iframe);
+        } else if (!panel.open) {
+          frame.querySelector('iframe')?.remove();
+        }
+      } else if (!panel.open) {
+        panel.querySelector('video')?.pause();
+      }
     });
   });
 </script>
@@ -286,6 +311,27 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
     margin-top: 12px;
     border-radius: var(--radius-sm);
     background: #000;
+  }
+
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin-top: 12px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-frame :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-link {
+    margin: 8px 0 0;
   }
 
   @media (max-width: 520px) {

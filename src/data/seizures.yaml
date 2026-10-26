@@ -1,5 +1,6 @@
 # One entry per seizure, newest first. Durations are approximate (seconds).
 # Two seizures within 24 hours are a cluster: give the later one `cluster_with`.
+# `video` is a YouTube link (unlisted is fine) or an MP4 file name in public/videos/.
 
 - number: 5
   date: 2026-10-22
@@ -14,6 +15,7 @@
   triggers: Cluster following seizure 4
   medications: Levetiracetam started by the emergency vet after this seizure (loading dose 3 tablets, then 1.5 tablets every 8 hours)
   context: Seen at Vets Now, Manchester. Vitals and neurological checks clear; discharged pending specialist review.
+  video: https://youtu.be/bjFx5znAdJE
 
 - number: 4
   date: 2026-10-22
@@ -27,6 +29,7 @@
   triggers: Unknown
   medications: Unknown — confirm with carer
   context: Owner abroad (India); Lemonade being cared for by Paola.
+  video: https://youtu.be/QKdrhuW0GZg
 
 - number: 3
   date: 2026-04-28
@@ -40,6 +43,7 @@
   triggers: General anaesthesia
   medications: General anaesthesia that day
   context: Night of the X-ray appointment at the local vet.
+  video: https://youtu.be/UjU_fowbPKs
 
 - number: 2
   date: 2026-01-13
@@ -50,6 +54,7 @@
   post_ictal: Very confused; barking, growling, defensive; did not recognise owner at first; resolved after ~20 minutes
   recovery: ~20 min to calm; fully normal afterwards
   triggers: Sound sensitivity — wind
+  video: https://youtu.be/k0WhD9jiauY
 
 - number: 1
   date: 2025-11-19
