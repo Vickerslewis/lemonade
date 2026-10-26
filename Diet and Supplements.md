@@ -30,6 +30,10 @@ tags: [lemonade, care, diet]
 | Joint Plus Pro              | Joint support                                | [Riaflex](https://www.riaflex.co.uk/products/joint-plus-pro)                                      |
 | Type II hydrolysed collagen | Joint cartilage support                      | [Riaflex](https://www.riaflex.co.uk/products/type-ii-collagen)                                    |
 | Protexin Pro-Fibre          | Digestive / prebiotic support                | [Animed](https://www.animed.co.uk/protexin-pro-fibre-digestive-supplement-for-dogs-and-cats-500g) |
+| Aprylic MCT (liquid)        | Seizure support — see [[Idiopathic Epilepsy]] | {{TBD}}                                                                                           |
+
+> [!note]
+> MCT oil (medium-chain triglycerides) gives the brain an alternative energy source. There is some evidence it reduces seizure frequency in dogs. Lemonade has had it daily since his first seizure, and Northwest endorsed it on 2026-10-26. It is **not** the same as coconut oil. The alternative is a diet that contains MCT, but that would mean changing his whole diet. Northwest also confirmed there is no evidence for avoiding pork, beef or gluten for epilepsy.
 
 ## Weight Monitoring
 
