@@ -56,7 +56,17 @@ export const seizures = load<Seizure[]>(seizuresRaw).sort((a, b) => b.number - a
 export const prodromes = load<Prodrome[]>(prodromesRaw).sort((a, b) => b.date.localeCompare(a.date));
 export const profile = load<Record<string, any>>(profileRaw);
 export const weights = load<{ date: string; kg: number }[]>(weightRaw).sort((a, b) => b.date.localeCompare(a.date));
-export const contacts = load<{ role: string; name: string; address?: string; notes?: string }[]>(contactsRaw);
+export interface Contact {
+  role: string;
+  name: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+  notes?: string;
+  urgent?: boolean;
+}
+
+export const contacts = load<Contact[]>(contactsRaw);
 export const medications = load<Record<string, any>>(medicationsRaw);
 export const timeline = load<TimelineEntry[]>(timelineRaw).sort((a, b) => b.date.localeCompare(a.date));
 export const openQuestions = load<Record<string, any>>(openQuestionsRaw);
@@ -87,6 +97,10 @@ export function seizureStats() {
     averageGap: gaps.length ? Math.round(total / gaps.length) : null,
     longestGap: gaps.length ? Math.max(...gaps.map((g) => g.days)) : null,
   };
+}
+
+export function withoutTbd(text: string) {
+  return text.replace(/\{\{TBD\}\}/g, 'not recorded');
 }
 
 export function formatDuration(seconds: number) {

@@ -10,7 +10,6 @@ const sections = [
 
 <Base title="Open questions" description="Missing details and records that need checking.">
   <header class="page-head">
-    <p class="eyebrow">Record keeping</p>
     <h1>Open questions</h1>
     <p class="lede">Gaps and inconsistencies in the record, so nothing gets quietly lost.</p>
   </header>
@@ -21,13 +20,13 @@ const sections = [
         <h2>{s.title}</h2>
         <p class="meta">{s.note}</p>
         <div class="table-wrap">
-          <table>
+          <table class="stack">
             <thead><tr><th>Item</th><th>Notes</th></tr></thead>
             <tbody>
               {q[s.key].map((row: any) => (
                 <tr>
-                  <td><strong>{row.item}</strong></td>
-                  <td>{row.notes}</td>
+                  <td class="row-title">{row.item}</td>
+                  <td class="notes">{row.notes}</td>
                 </tr>
               ))}
             </tbody>
@@ -47,6 +46,17 @@ const sections = [
   .resolved {
     padding-left: 2.2em;
     margin: 0;
+  }
+
+  td.row-title {
+    font-weight: 650;
+  }
+
+  @media (max-width: 640px) {
+    td.notes {
+      display: block;
+      color: var(--ink-2);
+    }
   }
 
   .resolved li {

@@ -31,6 +31,8 @@
   --gutter: 16px;
   --max: 1080px;
   --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Literata Variable', Georgia, 'Times New Roman', serif;
+  --selection: color-mix(in srgb, var(--gold) 45%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,6 +109,14 @@ body {
   color: var(--ink);
   font: 16px/1.6 var(--font);
   overflow-x: hidden;
+  accent-color: var(--accent);
+  caret-color: var(--accent);
+  scrollbar-color: var(--axis) transparent;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
 }
 
 img {
@@ -162,6 +172,12 @@ a:hover {
   margin-right: auto;
 }
 
+.brand span {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
 .brand svg {
   width: 28px;
   height: 28px;
@@ -201,6 +217,19 @@ a:hover {
   display: none;
 }
 
+/* Fade the edge that has more links beyond it, so the strip reads as scrollable. */
+.site-nav[data-more='end'] {
+  mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+}
+
+.site-nav[data-more='start'] {
+  mask-image: linear-gradient(to left, #000 calc(100% - 48px), transparent);
+}
+
+.site-nav[data-more='both'] {
+  mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+
 .site-nav ul {
   display: flex;
   gap: 4px;
@@ -212,7 +241,7 @@ a:hover {
 
 .site-nav a {
   display: block;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 999px;
   color: var(--ink-2);
   text-decoration: none;
@@ -258,30 +287,44 @@ main {
   margin-bottom: 24px;
 }
 
-.eyebrow {
-  margin: 0 0 4px;
+.page-meta {
+  margin: 0 0 12px;
   color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 0.92rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
-  line-height: 1.15;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  font-weight: 650;
+  line-height: 1.12;
   margin: 0 0 8px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: 620;
   line-height: 1.25;
   margin: 2em 0 0.6em;
 }
 
 h3 {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  font-weight: 620;
   margin: 1.6em 0 0.4em;
+}
+
+.tbd {
+  color: var(--muted);
+  font-style: italic;
 }
 
 .lede {
@@ -522,24 +565,27 @@ a.card:hover {
 }
 
 .prose blockquote {
-  margin: 1.2em 0;
-  padding: 0.2em 0 0.2em 16px;
-  border-left: 3px solid var(--gold);
+  margin: 1.4em 0;
+  padding: 0 0 0 1.2em;
   color: var(--ink-2);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-style: italic;
+  line-height: 1.5;
 }
 
 .prose strong {
   font-weight: 650;
 }
 
-/* Callouts */
+/* Callouts: one tinted surface with a hairline in its own hue. */
 .callout {
+  --tone: var(--info);
   margin: 1.2em 0;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
   background: var(--info-bg);
-  border-left: 4px solid var(--info);
+  border: 1px solid color-mix(in srgb, var(--tone) 28%, transparent);
 }
 
 .callout p {
@@ -551,36 +597,23 @@ a.card:hover {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--info);
+  color: var(--tone);
 }
 
 .callout-warning,
 .callout-important {
+  --tone: var(--critical);
   background: var(--critical-bg);
-  border-left-color: var(--critical);
-}
-
-.callout-warning .callout-label,
-.callout-important .callout-label {
-  color: var(--critical);
 }
 
 .callout-tip {
+  --tone: var(--good);
   background: var(--good-bg);
-  border-left-color: var(--good);
-}
-
-.callout-tip .callout-label {
-  color: var(--good);
 }
 
 .callout-note {
+  --tone: var(--accent);
   background: var(--accent-bg);
-  border-left-color: var(--gold);
-}
-
-.callout-note .callout-label {
-  color: var(--accent);
 }
 
 /* Tables */
@@ -596,6 +629,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.93rem;
+  font-variant-numeric: tabular-nums;
 }
 
 th,
@@ -622,6 +656,72 @@ td.num,
 th.num {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.show-sm {
+  display: none;
+}
+
+/* On phones, `.stack` tables become one labelled block per row instead of squeezed columns. */
+@media (max-width: 640px) {
+  .show-sm {
+    display: revert;
+  }
+
+  .stack thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .stack tr {
+    display: block;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--grid);
+  }
+
+  .stack tr:last-child {
+    border-bottom: 0;
+  }
+
+  .stack td {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: 12px;
+    padding: 3px 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .stack td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .stack td.row-title {
+    display: block;
+    font-weight: 650;
+    padding-bottom: 6px;
+  }
+
+  .stack td.row-title::before {
+    content: none;
+  }
+
+  .stack td.row-title .meta {
+    font-weight: 400;
+  }
+
+  .stack td > .badge {
+    justify-self: start;
+  }
+
+  .stack .hide-sm {
+    display: none;
+  }
 }
 
 .prose table {

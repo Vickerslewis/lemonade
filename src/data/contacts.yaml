@@ -1,15 +1,26 @@
+# Shown on the contact page and the action plan, in this order.
+# `urgent: true` highlights the card.
+
+- role: Emergency vet — open 24/7
+  name: Vets Now — Manchester Hospital
+  phone: 0161 222 6101
+  address: 98 Bury Old Road, Whitefield, Manchester, M45 6TQ
+  notes: Open 24 hours a day, every day, including bank holidays. Go here for a seizure over 3 minutes or a second seizure within 24 hours.
+  urgent: true
+
 - role: Owner
   name: Lewis Vickers
-  notes: Tell straight away about any warning signs or seizure
+  email: hello@lewisvickers.com
+  notes: Tell Lewis straight away about any warning signs or seizure.
 
 - role: Neurology specialist
   name: Northwest Veterinary Specialists
-  notes: Contact after any seizure, even a short one (owner will contact them)
-
-- role: Emergency vet (24/7)
-  name: Vets Now — Manchester Hospital
-  address: 98 Bury Old Road, Whitefield, Manchester, M45 6TQ
+  phone: 01928 711400
+  address: Delamere House, Ashville Point, Sutton Weaver, Runcorn, WA7 3FW
+  notes: Lemonade's specialist for epilepsy. Contact them after any seizure, even a short one.
 
 - role: Local vet
-  name: Companion Care (Pets at Home)
-  address: Regents Retail Park, Salford, M5 4QU
+  name: Vets for Pets Salford
+  phone: 0161 834 4167
+  address: Inside Pets at Home, 100 Regent Road, Salford, M5 4QU
+  notes: Formerly Companion Care. Day-to-day vet care, Cytopoint injections and anal glands.

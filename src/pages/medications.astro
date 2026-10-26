@@ -9,7 +9,6 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
 
 <Base title="Medications" description="Emergency medication, supplements, past medication and future options.">
   <header class="page-head">
-    <p class="eyebrow">Medications</p>
     <h1>Medications</h1>
     <p class="lede">{m.summary}</p>
   </header>
@@ -21,7 +20,7 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
         <div class="card emergency">
           <p class="meta">{e.route}</p>
           <h3 style="margin-top:2px">{e.drug}</h3>
-          <p><strong>{tbd(e.dose) ? 'Dose not recorded yet' : e.dose}</strong></p>
+          <p class="dose">{tbd(e.dose) ? <span class="tbd">Dose not recorded</span> : e.dose}</p>
           <p style="margin-top:6px">{e.when}</p>
           <p class="meta" style="margin-top:8px">Available since {e.since}</p>
         </div>
@@ -32,17 +31,17 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
 
   <h2>Current</h2>
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead><tr><th>Drug</th><th>Dose</th><th>Frequency</th><th>Purpose</th><th>Status</th></tr></thead>
       <tbody>
         {
           m.current.map((d: any) => (
             <tr>
-              <td><strong>{d.drug}</strong><br /><span class="meta">{d.class}</span></td>
-              <td class="num">{d.dose}</td>
-              <td>{d.frequency}</td>
-              <td>{d.purpose}</td>
-              <td><span class="badge badge-good">{d.status}</span></td>
+              <td class="row-title"><strong>{d.drug}</strong><br /><span class="meta">{d.class}</span></td>
+              <td class="num" data-label="Dose">{d.dose}</td>
+              <td data-label="Frequency">{d.frequency}</td>
+              <td data-label="Purpose">{d.purpose}</td>
+              <td data-label="Status"><span class="badge badge-good">{d.status}</span></td>
             </tr>
           ))
         }
@@ -52,15 +51,15 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
 
   <h2>Supplements and other products</h2>
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead><tr><th>Product</th><th>Purpose</th><th>Notes</th></tr></thead>
       <tbody>
         {
           m.supplements.map((s: any) => (
             <tr>
-              <td><strong>{s.product}</strong></td>
-              <td>{s.purpose}</td>
-              <td>{s.notes}</td>
+              <td class="row-title"><strong>{s.product}</strong></td>
+              <td data-label="Purpose">{s.purpose}</td>
+              <td data-label="Notes">{s.notes}</td>
             </tr>
           ))
         }
@@ -71,15 +70,15 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
 
   <h2>Reminders</h2>
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead><tr><th>Task</th><th>Due</th><th>Repeats</th></tr></thead>
       <tbody>
         {
           reminders.map((r: any) => (
             <tr>
-              <td>{r.task}</td>
-              <td class="num">{r.due ? formatDate(r.due, true) : '—'}</td>
-              <td>{r.repeat ?? '—'}</td>
+              <td class="row-title">{r.task}</td>
+              <td class="num" data-label="Due">{r.due ? formatDate(r.due, true) : '—'}</td>
+              <td data-label="Repeats" class:list={{ 'hide-sm': !r.repeat }}>{r.repeat ?? '—'}</td>
             </tr>
           ))
         }
@@ -89,17 +88,17 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
 
   <h2>Past medication</h2>
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead><tr><th>Drug</th><th>Dose</th><th>Purpose</th><th>Dates</th><th>Why stopped</th></tr></thead>
       <tbody>
         {
           m.past.map((d: any) => (
             <tr>
-              <td><strong>{d.drug}</strong></td>
-              <td>{tbd(d.dose) ? '—' : d.dose}</td>
-              <td>{d.purpose}</td>
-              <td class="num">{d.dates}</td>
-              <td>{d.reason}</td>
+              <td class="row-title"><strong>{d.drug}</strong></td>
+              <td data-label="Dose">{tbd(d.dose) ? <span class="tbd">not recorded</span> : d.dose}</td>
+              <td data-label="Purpose">{d.purpose}</td>
+              <td class="num" data-label="Dates">{d.dates}</td>
+              <td data-label="Why stopped">{d.reason}</td>
             </tr>
           ))
         }
@@ -108,20 +107,45 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
   </div>
 
   <h2>Future options</h2>
-  <div class="grid grid-2">
+  <dl class="options">
     {
       m.reserved.map((r: any) => (
-        <div class="card">
-          <h3>{r.name}</h3>
-          <p>{r.notes}</p>
+        <div>
+          <dt>{r.name}</dt>
+          <dd>{r.notes}</dd>
         </div>
       ))
     }
-  </div>
+  </dl>
 </Base>
 
 <style>
   .emergency {
-    border-left: 4px solid var(--critical);
+    background: var(--critical-bg);
+    border-color: color-mix(in srgb, var(--critical) 28%, transparent);
+  }
+
+  .dose {
+    color: var(--ink);
+    font-weight: 650;
+  }
+
+  .options {
+    margin: 0;
+    max-width: 72ch;
+  }
+
+  .options div {
+    padding: 12px 0;
+    border-top: 1px solid var(--grid);
+  }
+
+  .options dt {
+    font-weight: 650;
+  }
+
+  .options dd {
+    margin: 2px 0 0;
+    color: var(--ink-2);
   }
 </style>

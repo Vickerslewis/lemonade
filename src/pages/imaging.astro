@@ -14,22 +14,21 @@ const groupsOf = (images: { group: string }[]) => [...new Set(images.map((i) => 
 
 <Base title="Imaging" description="MRI, CT and X-ray studies, with the X-ray images.">
   <header class="page-head">
-    <p class="eyebrow">{studies.length} studies</p>
     <h1>Imaging</h1>
-    <p class="lede">Every scan and X-ray, newest first. Tap an image to open it full size.</p>
+    <p class="lede">All {studies.length} scans and X-rays, newest first. Tap an image to open it full size.</p>
   </header>
 
   <div class="table-wrap">
-    <table>
+    <table class="stack">
       <thead><tr><th>Date</th><th>Type</th><th>Region</th><th>Outcome</th></tr></thead>
       <tbody>
         {
           studies.map((s) => (
             <tr>
-              <td class="num"><a href={`#${s.id}`}>{formatDate(s.data.date, true)}</a></td>
-              <td>{s.data.modality}</td>
-              <td>{s.data.region}</td>
-              <td>{s.data.outcome}</td>
+              <td class="num row-title"><a href={`#${s.id}`}>{formatDate(s.data.date, true)}<span class="show-sm"> · {s.data.modality}</span></a></td>
+              <td class="hide-sm">{s.data.modality}</td>
+              <td data-label="Region">{s.data.region}</td>
+              <td data-label="Outcome">{s.data.outcome}</td>
             </tr>
           ))
         }
@@ -40,9 +39,10 @@ const groupsOf = (images: { group: string }[]) => [...new Set(images.map((i) => 
   {
     studies.map((s) => (
       <section id={s.id} class="study">
-        <p class="eyebrow">{formatDate(s.data.date)} · {s.data.modality}</p>
         <h2 style="margin-top:0">{s.data.title}</h2>
-        <p class="meta">Reason: {s.data.reason}</p>
+        <p class="page-meta">
+          <time datetime={s.data.date}>{formatDate(s.data.date)}</time> · {s.data.modality} · Reason: {s.data.reason}
+        </p>
         <div class="prose" style="margin-top:12px">
           <s.Content />
         </div>

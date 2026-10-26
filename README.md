@@ -19,7 +19,8 @@ Structured records are YAML files in `src/data/`. Longer write-ups are Markdown 
 | A weigh-in | `src/data/weight.yaml` — a chart appears once there are two |
 | A scan or X-ray | Add a Markdown file to `src/content/imaging/`; put images in `public/images/` |
 | Conditions | `src/content/conditions/` |
-| Action plan, diet, exercise, physio, background | `src/content/pages/` |
+| Action plan, diet, exercise, physio | `src/content/pages/` |
+| Contact details (owner and vets) | `src/data/contacts.yaml` |
 | Gaps or things to check | `src/data/open-questions.yaml` |
 
 Unknown values use `{{TBD}}`. In Markdown, link to other pages with site paths such as `/seizures/`, and use `> [!warning]`, `> [!note]`, `> [!tip]` or `> [!important]` for callout boxes.

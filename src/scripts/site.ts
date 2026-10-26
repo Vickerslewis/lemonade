@@ -70,8 +70,24 @@ function updateAges() {
   });
 }
 
+function setupNav() {
+  const nav = document.querySelector<HTMLElement>('.site-nav');
+  if (!nav) return;
+  const current = nav.querySelector<HTMLElement>('[aria-current="page"]');
+  if (current) nav.scrollLeft = current.offsetLeft - (nav.clientWidth - current.offsetWidth) / 2;
+  const mark = () => {
+    const start = nav.scrollLeft > 4;
+    const end = nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 4;
+    nav.dataset.more = start && end ? 'both' : end ? 'end' : start ? 'start' : '';
+  };
+  nav.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('resize', mark);
+  mark();
+}
+
 setupGate();
 setupTheme();
+setupNav();
 updateDayCounts();
 updateAges();
 

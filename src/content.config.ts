@@ -47,7 +47,7 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    section: z.enum(['care', 'about', 'plan', 'seizures']),
+    section: z.enum(['care', 'plan', 'seizures']),
     order: z.number().default(99),
   }),
 });

@@ -1,0 +1,108 @@
+---
+import type { Contact } from '../lib/data';
+
+interface Props {
+  contact: Contact;
+}
+
+const { contact: c } = Astro.props;
+const mapUrl = c.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${c.name}, ${c.address}`)}` : null;
+---
+
+<div class:list={['card', 'contact', { urgent: c.urgent }]}>
+  <p class="meta">{c.role}</p>
+  <h3>{c.name}</h3>
+  {c.notes && <p class="notes">{c.notes}</p>}
+  <ul class="ways">
+    {
+      c.phone && (
+        <li>
+          <a class="btn btn-quiet" href={`tel:${c.phone.replace(/\s/g, '')}`}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+            </svg>
+            {c.phone}
+          </a>
+        </li>
+      )
+    }
+    {
+      c.email && (
+        <li>
+          <a class="btn btn-quiet" href={`mailto:${c.email}`}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-10 6L2 7" />
+            </svg>
+            {c.email}
+          </a>
+        </li>
+      )
+    }
+  </ul>
+  {
+    c.address && mapUrl && (
+      <p class="address">
+        {c.address}
+        <br />
+        <a href={mapUrl} target="_blank" rel="noopener">Open in maps →</a>
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .contact h3 {
+    margin: 2px 0 6px;
+  }
+
+  .contact .notes {
+    margin-bottom: 12px;
+  }
+
+  .ways {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ways .btn {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .ways svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
+
+  .address {
+    margin-top: 12px;
+    color: var(--ink-2);
+  }
+
+  .urgent {
+    background: var(--critical-bg);
+    border-color: color-mix(in srgb, var(--critical) 28%, transparent);
+  }
+
+  .urgent .ways .btn {
+    background: var(--critical);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  :global(:root[data-theme='dark']) .urgent .ways .btn {
+    color: #0b0b0b;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:where(:not([data-theme='light']))) .urgent .ways .btn {
+      color: #0b0b0b;
+    }
+  }
+</style>
