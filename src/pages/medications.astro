@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import Md from '../components/Md.astro';
 import { medications as m, formatDate } from '../lib/data';
 import { url } from '../lib/url';
 
-const LABELS: Record<string, string> = { note: 'Note', warning: 'Warning', tip: 'Tip', important: 'Important', info: 'Info' };
 const tbd = (v: string) => v === '{{TBD}}';
 const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').localeCompare(b.due ?? '9999'));
 ---
@@ -31,17 +29,6 @@ const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').lo
     }
   </div>
   <p style="margin-top:12px"><a href={url('/action-plan/')}>See the full seizure action plan →</a></p>
-
-  {
-    m.notes.map((n: any) => (
-      <aside class={`callout callout-${n.type}`} role="note">
-        <p class="callout-label">{LABELS[n.type]}</p>
-        <p>
-          <Md text={n.text} />
-        </p>
-      </aside>
-    ))
-  }
 
   <h2>Current</h2>
   <div class="table-wrap">

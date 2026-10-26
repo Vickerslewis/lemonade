@@ -20,16 +20,6 @@ emergency:
     when: If a seizure passes 3 minutes. Can be repeated if there is no response within 1–2 minutes. Then go to the emergency vet
     since: ~2026-01-19; extra supply 2026-10-26 (spare kit for the car)
 
-notes:
-  - type: warning
-    text: Give rectal diazepam if a seizure passes **3 minutes**, so it doesn't reach 5 minutes (status epilepticus). Advice from Northwest Veterinary Specialists, 26 October 2026 (previously 5 minutes).
-  - type: note
-    text: Levetiracetam is a human medicine used off-label in dogs. It is generally very well tolerated; occasional sleepiness, and wobbliness after large doses. Behaviour changes are usually positive (Lemonade is noticeably calmer on it).
-  - type: warning
-    text: Paracetamol is safe for dogs at the prescribed dose. **Never give it to cats** — it is lethal.
-  - type: tip
-    text: When introducing new medications, add one at a time where possible so the effect of each can be assessed.
-
 supplements:
   - product: Aprylic MCT (liquid)
     purpose: Medium-chain triglycerides — some evidence it reduces seizure frequency
@@ -37,9 +27,6 @@ supplements:
   - product: Fibor Vet Plus
     purpose: Dietary fibre — anal gland support
     notes: Prescribed by vet
-  - product: Calmex Diffuser
-    purpose: Anxiety and stress reduction
-    notes: Plug-in pheromone diffuser
 
 past:
   - drug: Levetiracetam (Levetiracetam Accord 500 mg)

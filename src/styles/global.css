@@ -625,11 +625,19 @@ th.num {
 }
 
 .prose table {
-  display: block;
-  overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--surface);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 /* Disclosure */
