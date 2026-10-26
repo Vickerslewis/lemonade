@@ -27,13 +27,13 @@ const links = [
     <picture>
       <source
         type="image/webp"
-        srcset={`${url('/images/lemonade/hills-800.webp')} 800w, ${url('/images/lemonade/hills-1400.webp')} 1400w, ${url('/images/lemonade/hills-2000.webp')} 2000w`}
+        srcset={`${url('/images/lemonade/hills-wide-800.webp')} 800w, ${url('/images/lemonade/hills-wide-1400.webp')} 1400w, ${url('/images/lemonade/hills-wide-2000.webp')} 2000w`}
         sizes="(min-width: 1080px) 1048px, calc(100vw - 32px)"
       />
       <img
-        src={url('/images/lemonade/hills-1400.jpg')}
+        src={url('/images/lemonade/hills-wide-1400.jpg')}
         width="1400"
-        height="788"
+        height="618"
         alt="Lemonade, a golden retriever, standing on a gravel path in the hills with a sunlit valley behind him"
         fetchpriority="high"
       />
@@ -160,9 +160,9 @@ const links = [
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2000 / 882;
     object-fit: cover;
-    object-position: 50% 45%;
+    object-position: 47% 50%;
   }
 
   /* Text sits on the dark gravel; the scrim keeps it legible on any crop. */
@@ -192,8 +192,7 @@ const links = [
 
   @media (max-width: 640px) {
     .hero img {
-      aspect-ratio: 4 / 5;
-      object-position: 47% 50%;
+      aspect-ratio: 4 / 3;
     }
 
     .hero-text {
