@@ -34,6 +34,7 @@ export interface Seizure {
   triggers?: string;
   medications?: string;
   context?: string;
+  video?: string;
 }
 
 export interface Prodrome {

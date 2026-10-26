@@ -5,6 +5,7 @@ import ChartFigure from '../components/ChartFigure.astro';
 import EmergencyBanner from '../components/EmergencyBanner.astro';
 import { seizures, prodromes, seizureStats, formatDate, formatDuration, daysBetween } from '../lib/data';
 import { laneEvents } from '../lib/events';
+import { url } from '../lib/url';
 
 const stats = seizureStats();
 const buildDate = new Date().toISOString().slice(0, 10);
@@ -173,6 +174,22 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
             {s.medications && (<><dt>Medication</dt><dd>{s.medications}</dd></>)}
             {s.context && (<><dt>Context</dt><dd>{s.context}</dd></>)}
           </dl>
+          {s.video && (
+            <details class="seizure-video">
+              <summary>
+                <span class="sv-title">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m9 6 6 6-6 6" />
+                  </svg>
+                  Show the video
+                </span>
+                <span class="sv-note">Footage of the seizure — it can be upsetting to watch</span>
+              </summary>
+              <video controls preload="none" playsinline src={url(`/videos/${s.video}`)}>
+                <a href={url(`/videos/${s.video}`)}>Download the video</a>
+              </video>
+            </details>
+          )}
         </article>
       ))
     }
@@ -180,6 +197,15 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
 
   <div style="margin-top:40px"><EmergencyBanner /></div>
 </Base>
+
+<script>
+  // Closing the panel stops the footage rather than leaving it playing out of sight.
+  document.querySelectorAll<HTMLDetailsElement>('.seizure-video').forEach((panel) => {
+    panel.addEventListener('toggle', () => {
+      if (!panel.open) panel.querySelector('video')?.pause();
+    });
+  });
+</script>
 
 <style>
   .detail {
@@ -196,6 +222,70 @@ const laneLabel = { seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet vis
 
   .detail dd {
     margin: 0;
+  }
+
+  .seizure-video {
+    margin-top: 14px;
+    border-top: 1px solid var(--grid);
+    padding-top: 12px;
+  }
+
+  .seizure-video summary {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    cursor: pointer;
+    list-style: none;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+  }
+
+  .seizure-video summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .seizure-video summary:hover {
+    background: color-mix(in srgb, var(--surface-2) 70%, var(--axis));
+  }
+
+  .sv-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 650;
+    color: var(--accent);
+  }
+
+  .sv-title svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    transition: transform 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .seizure-video[open] .sv-title svg {
+    transform: rotate(90deg);
+  }
+
+  .seizure-video[open] .sv-title::after {
+    content: '— tap to hide';
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .sv-note {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+  }
+
+  .seizure-video video {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    margin-top: 12px;
+    border-radius: var(--radius-sm);
+    background: #000;
   }
 
   @media (max-width: 520px) {

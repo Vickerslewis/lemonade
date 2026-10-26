@@ -22,6 +22,13 @@ Structured records are YAML files in `src/data/`. Longer write-ups are Markdown 
 | Action plan, diet, exercise, physio | `src/content/pages/` |
 | Contact details (owner and vets) | `src/data/contacts.yaml` |
 | Gaps or things to check | `src/data/open-questions.yaml` |
+| A seizure video | Compress to H.264 MP4 (see below), put it in `public/videos/`, and add `video: <file>.mp4` to that seizure in `src/data/seizures.yaml` |
+
+Seizure videos stay hidden behind a "Show the video" panel and don't download until it's opened. Keep them small for phones:
+
+```sh
+ffmpeg -i original.mov -vf "scale=-2:720" -c:v libx264 -crf 28 -preset slow -c:a aac -b:a 96k -movflags +faststart public/videos/seizure-2.mp4
+```
 
 Unknown values use `{{TBD}}`. In Markdown, link to other pages with site paths such as `/seizures/`, and use `> [!warning]`, `> [!note]`, `> [!tip]` or `> [!important]` for callout boxes.
 
