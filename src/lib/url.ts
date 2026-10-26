@@ -10,7 +10,7 @@ export const NAV = [
   { href: '/contact/', label: 'Contact' },
   { href: '/seizures/', label: 'Seizures', also: ['/action-plan/'] },
   { href: '/medications/', label: 'Medications' },
-  { href: '/visits/', label: 'Vet visits' },
+  { href: '/visits/', label: 'Appointment notes' },
   { href: '/conditions/', label: 'Conditions' },
   { href: '/imaging/', label: 'Imaging' },
   { href: '/care/', label: 'Care' },

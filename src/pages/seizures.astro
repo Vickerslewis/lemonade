@@ -14,7 +14,7 @@ const gaps = stats.gaps.map((g, i) => ({ ...g, label: `gap-${i}` }));
 const patterns = await getEntry('pages', 'seizure-patterns');
 const { Content: Patterns } = await render(patterns!);
 const youtubeId = (video: string) => video.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/)?.[1];
-const laneLabel ={ seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet visit' } as const;
+const laneLabel ={ seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Appointment' } as const;
 ---
 
 <Base title="Seizures" description="Every seizure and warning-sign episode, with gaps and patterns.">
@@ -49,14 +49,14 @@ const laneLabel ={ seizure: 'Seizure', prodrome: 'Warning signs', vet: 'Vet visi
 
   <div class="grid" style="margin-top:14px">
     <ChartFigure
-      title="Seizures, warning signs and vet visits"
+      title="Seizures, warning signs and appointments"
       subtitle="Since the first seizure. Hover or tap a mark for details."
       chart="lanes"
       points={events}
       legend={[
         { label: 'Seizure', shape: 'circle', color: 'var(--series-1)' },
         { label: 'Warning signs', shape: 'diamond', color: 'var(--series-2)' },
-        { label: 'Vet visit', shape: 'square', color: 'var(--series-3)' },
+        { label: 'Appointment', shape: 'square', color: 'var(--series-3)' },
       ]}
     >
       <div class="table-wrap">

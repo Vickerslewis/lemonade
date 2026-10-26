@@ -1,6 +1,6 @@
 # Lemonade
 
-Health record website for Lemonade, a male Golden Retriever born 16 November 2019. It covers his seizure log, medications, vet visits, conditions, imaging and day-to-day care, for sharing with vets, dog sitters, friends and family.
+Health record website for Lemonade, a male Golden Retriever born 16 November 2019. It covers his seizure log, medications, appointment notes, conditions, imaging and day-to-day care, for sharing with vets, dog sitters, friends and family.
 
 Built with [Astro](https://astro.build) and [D3](https://d3js.org), deployed to GitHub Pages. The whole site sits behind a PIN.
 
@@ -14,7 +14,7 @@ Structured records are YAML files in `src/data/`. Longer write-ups are Markdown 
 |---|---|
 | A seizure | `src/data/seizures.yaml` — add an entry at the top. For a second seizure within 24 hours, set `cluster_with` |
 | Warning signs (prodrome) | `src/data/prodromes.yaml` — log every episode, even if no seizure follows |
-| A vet visit | Add a Markdown file to `src/content/visits/` (copy an existing one), and a line to `src/data/timeline.yaml` |
+| Appointment notes | Add a Markdown file to `src/content/visits/` (copy an existing one), and a line to `src/data/timeline.yaml` |
 | Medication changes or reminders | `src/data/medications.yaml` |
 | A weigh-in | `src/data/weight.yaml` — a chart appears once there are two |
 | A scan or X-ray | Add a Markdown file to `src/content/imaging/`; put images in `public/images/` |

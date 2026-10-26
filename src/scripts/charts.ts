@@ -53,7 +53,9 @@ function bindHover(
       tip.show(value, label, x, y);
       select(this.nextSibling as Element).classed('is-hover', true);
     })
-    .on('pointerleave blur', function () {
+    .on('pointerleave blur', function (event: PointerEvent | FocusEvent) {
+      // A finger "leaves" as soon as it lifts; keep a tapped tooltip until focus moves elsewhere.
+      if (event.type === 'pointerleave' && (event as PointerEvent).pointerType === 'touch') return;
       tip.hide();
       select(this.nextSibling as Element).classed('is-hover', false);
     });
@@ -166,7 +168,7 @@ interface LaneEvent {
 const LANES = [
   { key: 'seizure', label: 'Seizures', color: 'var(--series-1)' },
   { key: 'prodrome', label: 'Warning signs', color: 'var(--series-2)' },
-  { key: 'vet', label: 'Vet visits', color: 'var(--series-3)' },
+  { key: 'vet', label: 'Appointments', color: 'var(--series-3)' },
 ] as const;
 
 function shapePath(lane: LaneEvent['lane'], cx: number, cy: number) {
