@@ -1,23 +1,28 @@
 ---
 title: Physiotherapy and rehab
-description: Acupuncture, the boot, swimming, and next steps for his arthritis.
+description: Weekly acupuncture, the boot, swimming, and next steps.
 section: care
 order: 3
 ---
 
 ## Current plan
 
-1. **Acupuncture** — weekly, ongoing (started 18 June 2026 with 5 booked sessions)
+1. **Acupuncture** — weekly at Vets for Pets Salford, ongoing (started 18 June 2026)
 2. **K-laser therapy** — next step if acupuncture isn't enough
 
 ## Active
 
 ### Acupuncture
 
-- **Status:** weekly; he enjoys it and sleeps through the whole session
-- **What:** dry needling to reduce pain and inflammation; may also help chronic pain more widely
-- **Why:** recommended by Nick Macdonald (Northwest Veterinary Specialists) as the first-line physical treatment
-- **Response:** some dogs respond well, others don't. No arthritis problems since May 2026
+Every week at **Vets for Pets Salford** (Inside Pets at Home, 100 Regent Road, Salford). He enjoys it and sleeps through the whole session.
+
+It helps with a range of things:
+
+- **Arthritis** — reduces pain and inflammation in his knuckle joints. No arthritis problems since May 2026
+- **Epilepsy** — part of his care alongside the seizure plan
+- **Digestion** — there are signs it helps his diet and digestion, which matters for his anal glands
+
+First recommended by Nick Macdonald (Northwest Veterinary Specialists) for his arthritis. It started on 18 June 2026 with 5 booked sessions and has continued weekly since.
 
 ### Boot (left foot)
 

@@ -258,26 +258,6 @@ a:hover {
   color: var(--page);
 }
 
-.site-nav a.urgent {
-  color: var(--critical);
-  font-weight: 600;
-}
-
-.site-nav a.urgent[aria-current='page'] {
-  background: var(--critical);
-  color: #fff;
-}
-
-:root[data-theme='dark'] .site-nav a.urgent[aria-current='page'] {
-  color: #0b0b0b;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme='light'])) .site-nav a.urgent[aria-current='page'] {
-    color: #0b0b0b;
-  }
-}
-
 /* Page */
 main {
   padding: 28px 0 64px;

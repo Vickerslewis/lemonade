@@ -47,7 +47,7 @@ Chronic bilateral osteoarthritis affecting the knuckle (metacarpophalangeal) joi
 
 ### Physical
 
-- **Acupuncture** — weekly (started 18 June 2026); he sleeps through it
+- **Acupuncture** — weekly at Vets for Pets Salford (started 18 June 2026); he sleeps through it
 - **Boot** for the left (affected) foot — protection and more pain-free use on hard ground
 - **K-laser therapy with a physiotherapist** — next step if needed
 - **Swimming** — encouraged for fitness and joint mobility

@@ -51,6 +51,10 @@ After a seizure (post-ictal):
 - **Next step if needed:** daily phenobarbital with regular blood monitoring
 - **Rescue:** rectal diazepam as soon as a seizure reaches 3 minutes
 
+### Acupuncture
+
+- Weekly at Vets for Pets Salford, as part of his care alongside the seizure plan. It also helps his arthritis and digestion — see [physiotherapy and rehab](/care/physiotherapy-and-rehab/)
+
 ### Diet and supplements
 
 - MCT oil daily since the first seizure; the neurologist endorsed it — see [diet and supplements](/care/diet-and-supplements/)

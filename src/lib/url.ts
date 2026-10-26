@@ -7,9 +7,8 @@ export function url(path: string) {
 
 export const NAV = [
   { href: '/', label: 'Home' },
-  { href: '/action-plan/', label: 'Action plan', urgent: true },
   { href: '/contact/', label: 'Contact' },
-  { href: '/seizures/', label: 'Seizures' },
+  { href: '/seizures/', label: 'Seizures', also: ['/action-plan/'] },
   { href: '/medications/', label: 'Medications' },
   { href: '/visits/', label: 'Vet visits' },
   { href: '/conditions/', label: 'Conditions' },
