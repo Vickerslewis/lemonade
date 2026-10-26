@@ -23,13 +23,29 @@ const links = [
 ---
 
 <Base title="Lemonade" description={profile.tagline}>
-  <header class="page-head">
-    <h1>{profile.name}</h1>
-    <p class="page-meta">
-      {profile.breed} · born {formatDate(profile.date_of_birth)} · age <span data-age-from={profile.date_of_birth}>{ageOn(profile.date_of_birth, buildDate)}</span>
-    </p>
-    <p class="lede">{profile.tagline}</p>
+  <header class="hero">
+    <picture>
+      <source
+        type="image/webp"
+        srcset={`${url('/images/lemonade/hills-800.webp')} 800w, ${url('/images/lemonade/hills-1400.webp')} 1400w, ${url('/images/lemonade/hills-2000.webp')} 2000w`}
+        sizes="(min-width: 1080px) 1048px, calc(100vw - 32px)"
+      />
+      <img
+        src={url('/images/lemonade/hills-1400.jpg')}
+        width="1400"
+        height="788"
+        alt="Lemonade, a golden retriever, standing on a gravel path in the hills with a sunlit valley behind him"
+        fetchpriority="high"
+      />
+    </picture>
+    <div class="hero-text">
+      <h1>{profile.name}</h1>
+      <p>
+        <span class="nowrap">{profile.breed}</span> · <span class="nowrap">born {formatDate(profile.date_of_birth)} · age <span data-age-from={profile.date_of_birth}>{ageOn(profile.date_of_birth, buildDate)}</span></span>
+      </p>
+    </div>
   </header>
+  <p class="lede">{profile.tagline}</p>
 
   <section aria-labelledby="status-title">
     <div class="section-title">
@@ -132,6 +148,59 @@ const links = [
 </Base>
 
 <style>
+  .hero {
+    position: relative;
+    margin: 0 0 16px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #1b1a17;
+  }
+
+  .hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: 50% 45%;
+  }
+
+  /* Text sits on the dark gravel; the scrim keeps it legible on any crop. */
+  .hero-text {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 56px 24px 20px;
+    background: linear-gradient(to top, rgba(12, 11, 9, 0.72), rgba(12, 11, 9, 0));
+    color: #fff;
+  }
+
+  .hero-text h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.2rem, 7vw, 3.6rem);
+  }
+
+  .hero-text p {
+    margin: 2px 0 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.95rem;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .hero img {
+      aspect-ratio: 4 / 5;
+      object-position: 47% 50%;
+    }
+
+    .hero-text {
+      padding: 48px 16px 14px;
+    }
+  }
+
   .facts {
     display: grid;
     grid-template-columns: auto 1fr;
