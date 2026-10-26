@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { formatDate } from '../lib/data';
+import { url } from '../lib/url';
+
+const studies = await Promise.all(
+  (await getCollection('imaging'))
+    .sort((a, b) => b.data.date.localeCompare(a.data.date))
+    .map(async (s) => ({ ...s, Content: (await render(s)).Content })),
+);
+const groupsOf = (images: { group: string }[]) => [...new Set(images.map((i) => i.group))];
+---
+
+<Base title="Imaging" description="MRI, CT and X-ray studies, with the X-ray images.">
+  <header class="page-head">
+    <p class="eyebrow">{studies.length} studies</p>
+    <h1>Imaging</h1>
+    <p class="lede">Every scan and X-ray, newest first. Tap an image to open it full size.</p>
+  </header>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Type</th><th>Region</th><th>Outcome</th></tr></thead>
+      <tbody>
+        {
+          studies.map((s) => (
+            <tr>
+              <td class="num"><a href={`#${s.id}`}>{formatDate(s.data.date, true)}</a></td>
+              <td>{s.data.modality}</td>
+              <td>{s.data.region}</td>
+              <td>{s.data.outcome}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  {
+    studies.map((s) => (
+      <section id={s.id} class="study">
+        <p class="eyebrow">{formatDate(s.data.date)} · {s.data.modality}</p>
+        <h2 style="margin-top:0">{s.data.title}</h2>
+        <p class="meta">Reason: {s.data.reason}</p>
+        <div class="prose" style="margin-top:12px">
+          <s.Content />
+        </div>
+        {groupsOf(s.data.images).map((group) => (
+          <>
+            <h3>{group}</h3>
+            <div class="gallery">
+              {s.data.images
+                .filter((img) => img.group === group)
+                .map((img) => (
+                  <figure>
+                    <a href={url(`/images/${img.src}`)} target="_blank" rel="noopener">
+                      <img src={url(`/images/${img.src}`)} alt={`X-ray: ${img.caption}, ${formatDate(s.data.date)}`} loading="lazy" decoding="async" />
+                    </a>
+                    <figcaption>{img.caption}</figcaption>
+                  </figure>
+                ))}
+            </div>
+          </>
+        ))}
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .study {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--grid);
+  }
+</style>

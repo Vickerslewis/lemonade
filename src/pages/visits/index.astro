@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate } from '../../lib/data';
+import { url } from '../../lib/url';
+
+const visits = (await getCollection('visits')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const years = [...new Set(visits.map((v) => v.data.date.slice(0, 4)))];
+---
+
+<Base title="Vet visits" description="Every vet appointment, newest first.">
+  <header class="page-head">
+    <p class="eyebrow">{visits.length} appointments</p>
+    <h1>Vet visits</h1>
+    <p class="lede">Every appointment, newest first. Open one for the full notes.</p>
+  </header>
+
+  {
+    years.map((year) => (
+      <section>
+        <h2>{year}</h2>
+        <div class="grid">
+          {visits
+            .filter((v) => v.data.date.startsWith(year))
+            .map((v) => (
+              <a class="card visit" href={url(`/visits/${v.id}/`)}>
+                <time class="meta" datetime={v.data.date}>{formatDate(v.data.date)}</time>
+                <h3>{v.data.title}</h3>
+                <p class="meta">{v.data.location}</p>
+                <p style="margin-top:6px">{v.data.summary}</p>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .visit h3 {
+    margin-top: 2px;
+  }
+</style>

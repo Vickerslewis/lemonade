@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import Md from '../components/Md.astro';
+import { medications as m, formatDate } from '../lib/data';
+import { url } from '../lib/url';
+
+const LABELS: Record<string, string> = { note: 'Note', warning: 'Warning', tip: 'Tip', important: 'Important', info: 'Info' };
+const tbd = (v: string) => v === '{{TBD}}';
+const reminders = [...m.reminders].sort((a: any, b: any) => (a.due ?? '9999').localeCompare(b.due ?? '9999'));
+---
+
+<Base title="Medications" description="Emergency medication, supplements, past medication and future options.">
+  <header class="page-head">
+    <p class="eyebrow">Medications</p>
+    <h1>Medications</h1>
+    <p class="lede">{m.summary}</p>
+  </header>
+
+  <h2 style="margin-top:0">Emergency and as-needed</h2>
+  <div class="grid grid-2">
+    {
+      m.emergency.map((e: any) => (
+        <div class="card emergency">
+          <p class="meta">{e.route}</p>
+          <h3 style="margin-top:2px">{e.drug}</h3>
+          <p><strong>{tbd(e.dose) ? 'Dose not recorded yet' : e.dose}</strong></p>
+          <p style="margin-top:6px">{e.when}</p>
+          <p class="meta" style="margin-top:8px">Available since {e.since}</p>
+        </div>
+      ))
+    }
+  </div>
+  <p style="margin-top:12px"><a href={url('/action-plan/')}>See the full seizure action plan →</a></p>
+
+  {
+    m.notes.map((n: any) => (
+      <aside class={`callout callout-${n.type}`} role="note">
+        <p class="callout-label">{LABELS[n.type]}</p>
+        <p>
+          <Md text={n.text} />
+        </p>
+      </aside>
+    ))
+  }
+
+  <h2>Current</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Drug</th><th>Dose</th><th>Frequency</th><th>Purpose</th><th>Status</th></tr></thead>
+      <tbody>
+        {
+          m.current.map((d: any) => (
+            <tr>
+              <td><strong>{d.drug}</strong><br /><span class="meta">{d.class}</span></td>
+              <td class="num">{d.dose}</td>
+              <td>{d.frequency}</td>
+              <td>{d.purpose}</td>
+              <td><span class="badge badge-good">{d.status}</span></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Supplements and other products</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Product</th><th>Purpose</th><th>Notes</th></tr></thead>
+      <tbody>
+        {
+          m.supplements.map((s: any) => (
+            <tr>
+              <td><strong>{s.product}</strong></td>
+              <td>{s.purpose}</td>
+              <td>{s.notes}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <p class="meta">Joint supplements are listed under <a href={url('/care/diet-and-supplements/')}>diet and supplements</a>.</p>
+
+  <h2>Reminders</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Task</th><th>Due</th><th>Repeats</th></tr></thead>
+      <tbody>
+        {
+          reminders.map((r: any) => (
+            <tr>
+              <td>{r.task}</td>
+              <td class="num">{r.due ? formatDate(r.due, true) : '—'}</td>
+              <td>{r.repeat ?? '—'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Past medication</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Drug</th><th>Dose</th><th>Purpose</th><th>Dates</th><th>Why stopped</th></tr></thead>
+      <tbody>
+        {
+          m.past.map((d: any) => (
+            <tr>
+              <td><strong>{d.drug}</strong></td>
+              <td>{tbd(d.dose) ? '—' : d.dose}</td>
+              <td>{d.purpose}</td>
+              <td class="num">{d.dates}</td>
+              <td>{d.reason}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Future options</h2>
+  <div class="grid grid-2">
+    {
+      m.reserved.map((r: any) => (
+        <div class="card">
+          <h3>{r.name}</h3>
+          <p>{r.notes}</p>
+        </div>
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .emergency {
+    border-left: 4px solid var(--critical);
+  }
+</style>

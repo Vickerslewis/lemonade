@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import { timeline, formatDate } from '../lib/data';
+import { url } from '../lib/url';
+
+const years = [...new Set(timeline.map((e) => e.date.slice(0, 4)))];
+const KINDS = [
+  { kind: 'seizure', label: 'Seizure' },
+  { kind: 'prodrome', label: 'Warning signs' },
+  { kind: 'vet', label: 'Vet' },
+  { kind: 'treatment', label: 'Treatment' },
+  { kind: 'life', label: 'Life event' },
+];
+---
+
+<Base title="Timeline" description="Every key event in Lemonade's health history.">
+  <header class="page-head">
+    <p class="eyebrow">History</p>
+    <h1>Timeline</h1>
+    <p class="lede">Key events, newest first.</p>
+  </header>
+
+  <ul class="legend kinds" aria-label="Key">
+    {KINDS.map((k) => <li data-kind={k.kind}>{k.label}</li>)}
+  </ul>
+
+  {
+    years.map((year) => (
+      <section>
+        <h2>{year}</h2>
+        <ol class="timeline">
+          {timeline
+            .filter((e) => e.date.startsWith(year))
+            .map((e) => (
+              <li data-kind={e.kind}>
+                <time datetime={e.date}>
+                  {formatDate(e.date)} · {KINDS.find((k) => k.kind === e.kind)?.label}
+                </time>
+                <p>{e.text}</p>
+                {e.link && <a href={url(e.link)}>Details →</a>}
+              </li>
+            ))}
+        </ol>
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .kinds li::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--axis);
+  }
+
+  .kinds li[data-kind='seizure']::before {
+    background: var(--series-1);
+  }
+
+  .kinds li[data-kind='prodrome']::before {
+    background: var(--series-2);
+    border-radius: 2px;
+    transform: rotate(45deg) scale(0.85);
+  }
+
+  .kinds li[data-kind='vet']::before {
+    background: var(--series-3);
+    border-radius: 2px;
+  }
+
+  .kinds li[data-kind='treatment']::before {
+    background: var(--gold);
+  }
+</style>

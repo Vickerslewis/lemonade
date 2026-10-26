@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ChartFigure from '../../components/ChartFigure.astro';
+import { weights, formatDate } from '../../lib/data';
+import { url } from '../../lib/url';
+
+const pages = (await getCollection('pages')).filter((p) => p.data.section === 'care').sort((a, b) => a.data.order - b.data.order);
+const latest = weights[0];
+---
+
+<Base title="Care" description="Diet, supplements, weight, exercise and physiotherapy.">
+  <header class="page-head">
+    <p class="eyebrow">Day-to-day care</p>
+    <h1>Care</h1>
+    <p class="lede">How Lemonade is fed, exercised and treated for his arthritis.</p>
+  </header>
+
+  <div class="grid grid-3">
+    {
+      pages.map((p) => (
+        <a class="card" href={url(`/care/${p.id}/`)}>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.description}</p>
+        </a>
+      ))
+    }
+  </div>
+
+  <h2 id="weight">Weight</h2>
+  <div class="grid grid-2">
+    <div class="tile">
+      <p class="tile-label">Latest weight</p>
+      <p class="tile-value">{latest.kg} <small>kg</small></p>
+      <p class="tile-note">{formatDate(latest.date)}</p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Why it matters</p>
+      <p style="margin:4px 0 0">Keeping him lean is one of the two biggest factors in managing his arthritis. Even 1–2 kg extra noticeably increases joint load.</p>
+    </div>
+  </div>
+
+  {
+    weights.length > 1 ? (
+      <div style="margin-top:14px">
+        <ChartFigure title="Weight (kg)" chart="weight" points={weights}>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Date</th><th class="num">kg</th></tr></thead>
+              <tbody>
+                {weights.map((w) => (
+                  <tr>
+                    <td>{formatDate(w.date)}</td>
+                    <td class="num">{w.kg}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </ChartFigure>
+      </div>
+    ) : (
+      <p class="meta">A weight chart appears here once there are at least two weigh-ins.</p>
+    )
+  }
+</Base>

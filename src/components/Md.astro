@@ -1,0 +1,9 @@
+---
+// Renders a short inline Markdown string (bold only) from data files without allowing HTML.
+interface Props {
+  text: string;
+}
+const parts = Astro.props.text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
+---
+
+{parts.map((p) => (p.startsWith('**') ? <strong>{p.slice(2, -2)}</strong> : p))}

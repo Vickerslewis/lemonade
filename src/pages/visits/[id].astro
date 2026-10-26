@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate } from '../../lib/data';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const visits = (await getCollection('visits')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+  return visits.map((visit, i) => ({
+    params: { id: visit.id },
+    props: { visit, newer: visits[i - 1], older: visits[i + 1] },
+  }));
+}
+
+const { visit, newer, older } = Astro.props;
+const { Content } = await render(visit);
+---
+
+<Base title={visit.data.title} description={visit.data.summary}>
+  <p class="meta"><a href={url('/visits/')}>← All vet visits</a></p>
+  <header class="page-head">
+    <p class="eyebrow">{formatDate(visit.data.date)} · {visit.data.type}</p>
+    <h1>{visit.data.title}</h1>
+    <p class="lede">{visit.data.summary}</p>
+    <p class="meta" style="margin-top:8px">
+      {visit.data.location}{visit.data.clinician && ` · ${visit.data.clinician}`}
+    </p>
+  </header>
+
+  <article class="prose">
+    <Content />
+  </article>
+
+  <nav class="pager" aria-label="Other visits">
+    {newer ? <a class="card" href={url(`/visits/${newer.id}/`)}><span class="meta">Newer</span><br />{newer.data.title}</a> : <span />}
+    {older ? <a class="card" href={url(`/visits/${older.id}/`)}><span class="meta">Older</span><br />{older.data.title}</a> : <span />}
+  </nav>
+</Base>
+
+<style>
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 48px;
+  }
+
+  .pager a:last-child {
+    text-align: right;
+  }
+</style>

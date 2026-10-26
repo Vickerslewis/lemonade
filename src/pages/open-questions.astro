@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import { openQuestions as q } from '../lib/data';
+
+const sections = [
+  { key: 'missing', title: 'Missing information', note: 'To fill in when known.' },
+  { key: 'discrepancies', title: 'Things that don’t match', note: 'Records disagree; worth confirming with the owner or vet.' },
+];
+---
+
+<Base title="Open questions" description="Missing details and records that need checking.">
+  <header class="page-head">
+    <p class="eyebrow">Record keeping</p>
+    <h1>Open questions</h1>
+    <p class="lede">Gaps and inconsistencies in the record, so nothing gets quietly lost.</p>
+  </header>
+
+  {
+    sections.map((s) => (
+      <section>
+        <h2>{s.title}</h2>
+        <p class="meta">{s.note}</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Item</th><th>Notes</th></tr></thead>
+            <tbody>
+              {q[s.key].map((row: any) => (
+                <tr>
+                  <td><strong>{row.item}</strong></td>
+                  <td>{row.notes}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))
+  }
+
+  <h2>Resolved</h2>
+  <ul class="card resolved">
+    {q.resolved.map((r: string) => <li>{r}</li>)}
+  </ul>
+</Base>
+
+<style>
+  .resolved {
+    padding-left: 2.2em;
+    margin: 0;
+  }
+
+  .resolved li {
+    margin: 0.3em 0;
+    color: var(--ink-2);
+  }
+</style>

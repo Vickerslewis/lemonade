@@ -1,0 +1,63 @@
+# One entry per seizure, newest first. Durations are approximate (seconds).
+# Two seizures within 24 hours are a cluster: give the later one `cluster_with`.
+
+- number: 5
+  date: 2026-10-22
+  time: "06:21"
+  duration_seconds: 80
+  type: Generalised
+  cluster_with: 4
+  prodrome: Cluster event, ~5 h 47 min after seizure 4; no distinct new prodrome
+  description: Occurred during sleep. He did not get up straight away; he lay on his side, not moving, for ~30–45 seconds before waking.
+  post_ictal: Erratic behaviour; calmed after 10–15 minutes
+  recovery: ~10–15 min
+  triggers: Cluster following seizure 4
+  medications: Levetiracetam started by the emergency vet after this seizure (loading dose 3 tablets, then 1.5 tablets every 8 hours)
+  context: Seen at Vets Now, Manchester. Vitals and neurological checks clear; discharged pending specialist review.
+
+- number: 4
+  date: 2026-10-22
+  time: "00:34"
+  duration_seconds: 60
+  type: Generalised
+  prodrome: ~20 h of pacing, staring and not settling; woke the carer (Paola) at ~04:00 on 21 October by bringing toys and not settling
+  description: Occurred during sleep, in a tight space between the bed and the wall; kicking the wall woke the carer.
+  post_ictal: Barking; did not immediately recognise his surroundings; settled after 15–20 minutes; drank heavily, then alert and excited
+  recovery: ~15–20 min
+  triggers: Unknown
+  medications: Unknown — confirm with carer
+  context: Owner abroad (India); Lemonade being cared for by Paola.
+
+- number: 3
+  date: 2026-04-28
+  time: "~03:00"
+  duration_seconds: 50
+  type: Generalised
+  prodrome: ~2 h of anxiety, noise sensitivity, pacing and staring. He had been under general anaesthesia 14 hours earlier
+  description: Occurred during sleep.
+  post_ictal: Calm on waking; no aggression
+  recovery: ~20 min
+  triggers: General anaesthesia
+  medications: General anaesthesia that day
+  context: Night of the X-ray appointment at the local vet.
+
+- number: 2
+  date: 2026-01-13
+  duration_seconds: 80
+  type: Generalised
+  prodrome: Very nervous through the night for 3–4 hours; fearful of normal household sounds (especially wind); pacing for long periods; staring at the ceiling; could not settle
+  description: Full body seizure; started while asleep; urinated during the seizure.
+  post_ictal: Very confused; barking, growling, defensive; did not recognise owner at first; resolved after ~20 minutes
+  recovery: ~20 min to calm; fully normal afterwards
+  triggers: Sound sensitivity — wind
+
+- number: 1
+  date: 2025-11-19
+  duration_seconds: 60
+  type: Generalised
+  prodrome: Nervous, jumpy and unsettled for ~24 h; staring into the distance (presumed fearful of something in the flat)
+  description: Full body convulsions; drooling; stiffening; complete loss of awareness; did not urinate or defecate.
+  post_ictal: Aggressive barking and biting for 3–6 minutes
+  recovery: ~30 min to fully normal
+  triggers: Unknown
+  context: Emergency vet the same day. Full physical, reflex and neurological exams normal; bloodwork normal. Advice was to monitor, and treat if it recurred within 3 months.

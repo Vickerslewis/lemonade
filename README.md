@@ -1,60 +1,44 @@
 # Lemonade
 
-Health and life record for Lemonade — a male Golden Retriever born 16 November 2019.
+Health record website for Lemonade, a male Golden Retriever born 16 November 2019. It covers his seizure log, medications, vet visits, conditions, imaging and day-to-day care, for sharing with vets, dog sitters, friends and family.
 
-This is an [Obsidian](https://obsidian.md) vault containing structured notes on his medical history, diagnoses, medications, seizure log, vet visits, and X-ray imaging.
+Built with [Astro](https://astro.build) and [D3](https://d3js.org), deployed to GitHub Pages. The whole site sits behind a PIN.
 
----
+> The PIN is a soft gate. It keeps casual visitors and search engines out of the site, but everything in this repository is public on GitHub.
 
-## About Lemonade
+## Updating the record
 
-| | |
+Structured records are YAML files in `src/data/`. Longer write-ups are Markdown files in `src/content/`. Stats, charts and "days since" counts are worked out automatically.
+
+| To record… | Edit |
 |---|---|
-| **Breed** | Golden Retriever |
-| **Sex** | Male, unneutered |
-| **Date of birth** | 16 November 2019 |
-| **Weight** | 35 kg |
-| **Temperament** | Highly active, adventurous, outdoor-loving |
+| A seizure | `src/data/seizures.yaml` — add an entry at the top. For a second seizure within 24 hours, set `cluster_with` |
+| Warning signs (prodrome) | `src/data/prodromes.yaml` — log every episode, even if no seizure follows |
+| A vet visit | Add a Markdown file to `src/content/visits/` (copy an existing one), and a line to `src/data/timeline.yaml` |
+| Medication changes or reminders | `src/data/medications.yaml` |
+| A weigh-in | `src/data/weight.yaml` — a chart appears once there are two |
+| A scan or X-ray | Add a Markdown file to `src/content/imaging/`; put images in `public/images/` |
+| Conditions | `src/content/conditions/` |
+| Action plan, diet, exercise, physio, background | `src/content/pages/` |
+| Gaps or things to check | `src/data/open-questions.yaml` |
 
-## Active Conditions
+Unknown values use `{{TBD}}`. In Markdown, link to other pages with site paths such as `/seizures/`, and use `> [!warning]`, `> [!note]`, `> [!tip]` or `> [!important]` for callout boxes.
 
-**Bilateral Carpal and Toe Osteoarthritis**
-Confirmed by CT in May 2026. Severe osteoarthritis on the left fifth toe knuckle joint, with milder bilateral changes across multiple knuckle joints. Managed conservatively with weekly acupuncture, padded boots, and activity; no current medication.
+## Running it locally
 
-**Idiopathic Epilepsy**
-Five generalised seizures recorded (November 2025, January 2026, April 2026, and a cluster of two on 22 October 2026). Brain MRI clear — no structural cause. Levetiracetam is given for 5 days whenever his pre-seizure warning signs appear; no daily medication.
+```sh
+npm install
+SITE_PIN=1234 npm run dev     # http://localhost:4321/lemonade/
+```
 
----
+Leave out `SITE_PIN` to run without the PIN screen.
 
-## Vault Contents
+## Publishing
 
-### Health
-| Note | Description |
-|---|---|
-| [Diagnoses](Diagnoses.md) | All active, managed, and historical conditions |
-| [Medications](Medications.md) | Current drug regimen, schedule, and past medications |
-| [Seizure Log](Seizure%20Log.md) | Every seizure event with pre- and post-ictal detail |
-| [Vet Visits](Vet%20Visits.md) | Chronological visit log from 2020 |
-| [Imaging History](Imaging%20History.md) | X-rays (2022 and 2026) with embedded images |
+Every push to `main` builds and deploys the site. One-time setup in the repository settings:
 
-### Care
-| Note | Description |
-|---|---|
-| [Exercise and Activity](Exercise%20and%20Activity.md) | Daily exercise guidance |
-| [Diet and Supplements](Diet%20and%20Supplements.md) | Nutrition, kibble, and joint supplements |
-| [Physiotherapy and Rehab](Physiotherapy%20and%20Rehab.md) | Physio, laser, acupuncture, boots |
-| [Seizure Action Plan](Seizure%20Action%20Plan.md) | What to do before, during and after a seizure — for carers |
+1. **Make the repository public** (GitHub Pages is free for public repositories).
+2. **Settings → Pages → Source:** choose **GitHub Actions**.
+3. **Settings → Secrets and variables → Actions:** add a secret called `SITE_PIN` containing the PIN. The deploy fails without it, so the site is never published unprotected.
 
-### History
-| Note | Description |
-|---|---|
-| [Timeline](Timeline.md) | Chronological summary of key events |
-| [Childhood and Background](Childhood%20and%20Background.md) | Early life and temperament |
-
----
-
-## Using This Vault
-
-This repository is an [Obsidian](https://obsidian.md) vault. To use it with full functionality — wiki-links, graph view, backlinks, and template support — open the repository folder directly as a vault in Obsidian.
-
-Notes follow a consistent structure defined in [_meta/STYLE_GUIDE.md](_meta/STYLE_GUIDE.md).
+The site will be at `https://vickerslewis.github.io/lemonade/`.

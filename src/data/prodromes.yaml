@@ -1,0 +1,15 @@
+# Every episode of warning signs (prodrome), whether or not a seizure followed. Newest first.
+# Northwest use this to judge whether prodrome-triggered levetiracetam is working.
+
+- date: 2026-10-21
+  start: "~04:00"
+  signs: Pacing, staring, not settling; woke carer
+  levetiracetam: No (not yet prescribed)
+  seizure_followed: true
+  notes: Followed by seizures 4 and 5. Owner abroad.
+
+- date: 2026-05-31
+  start: before 08:27
+  signs: Pre-seizure behaviour; blinds closed and quiet environment kept for the day
+  levetiracetam: No
+  seizure_followed: false

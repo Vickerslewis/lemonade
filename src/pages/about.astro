@@ -1,0 +1,57 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { profile, contacts, weights, formatDate, ageOn } from '../lib/data';
+
+const page = await getEntry('pages', 'background');
+const { Content } = await render(page!);
+const buildDate = new Date().toISOString().slice(0, 10);
+---
+
+<Base title="About Lemonade" description={page!.data.description}>
+  <header class="page-head">
+    <p class="eyebrow">{profile.breed}</p>
+    <h1>{page!.data.title}</h1>
+    <p class="lede">{page!.data.description}</p>
+  </header>
+
+  <div class="grid grid-4">
+    <div class="tile">
+      <p class="tile-label">Age</p>
+      <p class="tile-value"><span data-age-from={profile.date_of_birth}>{ageOn(profile.date_of_birth, buildDate)}</span> <small>years</small></p>
+      <p class="tile-note">Born {formatDate(profile.date_of_birth)}</p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Weight</p>
+      <p class="tile-value">{weights[0].kg} <small>kg</small></p>
+      <p class="tile-note">{formatDate(weights[0].date)}</p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Sex</p>
+      <p class="tile-value" style="font-size:1.3rem">{profile.sex}</p>
+      <p class="tile-note">{profile.neutered ? 'Neutered' : 'Unneutered'}</p>
+    </div>
+    <div class="tile">
+      <p class="tile-label">Owner</p>
+      <p class="tile-value" style="font-size:1.3rem">{profile.owner}</p>
+    </div>
+  </div>
+
+  <article class="prose" style="margin-top:32px">
+    <Content />
+  </article>
+
+  <h2>Contacts</h2>
+  <div class="grid grid-2">
+    {
+      contacts.map((c) => (
+        <div class="card">
+          <p class="meta">{c.role}</p>
+          <h3 style="margin-top:2px">{c.name}</h3>
+          {c.address && <p>{c.address}</p>}
+          {c.notes && <p>{c.notes}</p>}
+        </div>
+      ))
+    }
+  </div>
+</Base>

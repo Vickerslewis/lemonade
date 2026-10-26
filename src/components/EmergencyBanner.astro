@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+---
+
+<div class="alert alert-critical">
+  <Icon name="alert" />
+  <div>
+    <h2>Seizure or warning signs?</h2>
+    <p>Start levetiracetam at the first warning signs. Give rectal diazepam if a seizure passes 3 minutes, then go to the emergency vet.</p>
+    <p style="margin-top:12px">
+      <a class="btn btn-critical" href={url('/action-plan/')}>Open the action plan <Icon name="arrow" /></a>
+    </p>
+  </div>
+</div>
+
+<style>
+  .alert :global(.btn svg) {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    color: inherit;
+  }
+</style>

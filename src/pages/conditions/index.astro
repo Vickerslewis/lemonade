@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate } from '../../lib/data';
+import { url } from '../../lib/url';
+
+const all = (await getCollection('conditions')).sort((a, b) => a.data.order - b.data.order);
+const groups = [
+  { status: 'active', title: 'Active', badge: 'badge badge-active', label: 'Active' },
+  { status: 'managed', title: 'Managed (ongoing)', badge: 'badge', label: 'Managed' },
+  { status: 'historical', title: 'Historical or incidental', badge: 'badge', label: 'Historical' },
+  { status: 'ruled-out', title: 'Ruled out', badge: 'badge badge-good', label: 'Ruled out' },
+] as const;
+---
+
+<Base title="Conditions" description="Active, managed and historical conditions, and what has been ruled out.">
+  <header class="page-head">
+    <p class="eyebrow">Diagnoses</p>
+    <h1>Conditions</h1>
+    <p class="lede">What Lemonade has, what's being managed, and what has been ruled out.</p>
+  </header>
+
+  {
+    groups.map((g) => {
+      const items = all.filter((c) => c.data.status === g.status);
+      return (
+        items.length > 0 && (
+          <section>
+            <h2>{g.title}</h2>
+            <div class="grid grid-2">
+              {items.map((c) => (
+                <a class="card" href={url(`/conditions/${c.id}/`)}>
+                  <p class="meta" style="margin-bottom:6px">
+                    <span class={g.badge}>{g.label}</span>
+                    {c.data.diagnosed && ` · diagnosed ${formatDate(c.data.diagnosed)}`}
+                  </p>
+                  <h3>{c.data.title}</h3>
+                  <p>{c.data.summary}</p>
+                  {c.data.severity && <p class="meta" style="margin-top:8px">{c.data.severity}</p>}
+                </a>
+              ))}
+            </div>
+          </section>
+        )
+      );
+    })
+  }
+</Base>

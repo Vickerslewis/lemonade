@@ -1,0 +1,37 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { contacts } from '../lib/data';
+
+const page = await getEntry('pages', 'action-plan');
+const { Content } = await render(page!);
+---
+
+<Base title="Seizure action plan" description={page!.data.description}>
+  <header class="page-head">
+    <p class="eyebrow">For anyone looking after Lemonade</p>
+    <h1>{page!.data.title}</h1>
+    <p class="lede">{page!.data.description}</p>
+    <p class="no-print" style="margin-top:14px">
+      <button class="btn btn-quiet" type="button" onclick="window.print()">Print this page</button>
+    </p>
+  </header>
+
+  <article class="prose">
+    <Content />
+  </article>
+
+  <h2>Who to tell</h2>
+  <div class="grid grid-2">
+    {
+      contacts.map((c) => (
+        <div class="card">
+          <p class="meta">{c.role}</p>
+          <h3 style="margin-top:2px">{c.name}</h3>
+          {c.address && <p>{c.address}</p>}
+          {c.notes && <p>{c.notes}</p>}
+        </div>
+      ))
+    }
+  </div>
+</Base>

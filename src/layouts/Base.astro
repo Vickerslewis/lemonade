@@ -1,0 +1,137 @@
+---
+import { createHash } from 'node:crypto';
+import '../styles/global.css';
+import { NAV, url } from '../lib/url';
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Health record for Lemonade, a Golden Retriever.' } = Astro.props;
+
+const PIN_SALT = 'lemonade:';
+const pin = process.env.SITE_PIN?.trim();
+const pinHash = pin ? createHash('sha256').update(PIN_SALT + pin).digest('hex') : null;
+
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const pageTitle = title === 'Lemonade' ? 'Lemonade' : `${title} · Lemonade`;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <script is:inline define:vars={{ pinHash }}>
+      try {
+        const theme = localStorage.getItem('lemonade-theme');
+        if (theme) document.documentElement.dataset.theme = theme;
+      } catch {}
+      // Soft gate only: the content is in the page and the public repo.
+      window.__PIN_HASH = pinHash;
+      if (pinHash) {
+        let ok = false;
+        try {
+          ok = localStorage.getItem('lemonade-pin') === pinHash;
+        } catch {}
+        if (!ok) document.documentElement.classList.add('locked');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="gate" role="dialog" aria-labelledby="gate-title">
+      <form class="gate-card card" id="gate-form" autocomplete="off">
+        <Logo />
+        <h1 id="gate-title">Lemonade</h1>
+        <p>Enter the PIN to view his health record.</p>
+        <label class="visually-hidden" for="gate-pin">PIN</label>
+        <input id="gate-pin" name="pin" type="password" inputmode="numeric" autocomplete="off" required />
+        <button class="btn" type="submit">Unlock</button>
+        <p class="gate-error" id="gate-error" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <div class="header-row">
+          <a class="brand" href={url('/')}>
+            <Logo />
+            <span>Lemonade</span>
+          </a>
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch light or dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+            </svg>
+          </button>
+        </div>
+        <nav class="site-nav" aria-label="Main">
+          <ul>
+            {
+              NAV.map((item) => (
+                <li>
+                  <a href={url(item.href)} class={item.urgent ? 'urgent' : undefined} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Lemonade's health record, kept by Lewis Vickers. Not veterinary advice — always follow the vet's instructions.
+          <br />
+          <a href={url('/open-questions/')}>Open questions and data gaps</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .skip {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    z-index: 30;
+    padding: 8px 12px;
+    background: var(--ink);
+    color: var(--page);
+    border-radius: 8px;
+  }
+
+  .skip:focus {
+    left: 8px;
+  }
+</style>
