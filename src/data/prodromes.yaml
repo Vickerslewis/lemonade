@@ -1,6 +1,13 @@
 # Every episode of warning signs (prodrome), whether or not a seizure followed. Newest first.
 # Northwest use this to judge whether prodrome-triggered levetiracetam is working.
 
+- date: 2026-10-28
+  start: "~00:00"
+  signs: Unsettled and needy rather than his usual nervousness; wanting attention, jumping up and down, woke Lewis about three times. Happy and normal outside
+  levetiracetam: Yes — first 1,000 mg tablet at 06:30; 5-day course
+  seizure_followed: false
+  notes: Not his typical pattern, so started as a precaution. No seizure as of 29 October.
+
 - date: 2026-10-21
   start: "~04:00"
   signs: Pacing, staring, not settling; woke carer

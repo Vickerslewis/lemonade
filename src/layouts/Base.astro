@@ -31,6 +31,7 @@ const pageTitle = title === 'Lemonade' ? 'Lemonade' : `${title} · Lemonade`;
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
     <script is:inline define:vars={{ pinHash }}>
       try {
         const theme = localStorage.getItem('lemonade-theme');
