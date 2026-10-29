@@ -65,6 +65,6 @@ He usually settles and seems normal the next day. The seizure tends to come afte
 
 ## Good to know
 
-- On levetiracetam he is calmer than usual (relaxed in the car, ignores wind). Mild wobbliness can happen after a large dose
+- On levetiracetam he is calmer than usual (relaxed in the car, ignores wind) and can be a little sleepy. He was briefly wobbly after the large first dose in October, but not since
 - Aprylic MCT oil continues every day regardless
 - If prodrome-triggered levetiracetam doesn't control things over the following months, the next step is daily phenobarbital
