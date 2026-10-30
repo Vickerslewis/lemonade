@@ -65,8 +65,8 @@ reserved:
     notes: NSAIDs, if the arthritis flares. Onsior and paracetamol can be given together, and long-term NSAID use is safe with periodic blood monitoring. Don't stop paracetamol too early — inflammation outlasts pain, so continue ~2 weeks after symptoms resolve.
 
 reminders:
-  - task: Finish the levetiracetam course started 28 October (1 tablet every 8 hours)
-    due: 2026-11-02
+  - task: Finish the levetiracetam course started 28 October (1 tablet every 8 hours; 15th and last tablet ~22:30)
+    due: 2026-11-01
     done: false
   - task: Get a repeat prescription of levetiracetam — only one 5-day course was supplied
     due: 2026-10-30
